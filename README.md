@@ -1,1 +1,1 @@
-# fast-detects
+Wallarm FAST custom detects
