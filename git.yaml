@@ -1,0 +1,24 @@
+generate:
+        payload: 
+        - /.git/index
+        into: URI
+        method: 
+        - replace
+detect:
+        - response:
+                - body: ^DIRC
+meta-info:
+        type: info
+        threat: 60
+        tags:
+                - GIT
+                - Source Code Disclosure
+                - Misconfiguration
+                - Directory Listing
+                - Insecure Direct Object References
+                - Broken Access Control
+                - OWASP
+                - OWASP Top-10
+                - A4:2010
+                - A4:2013
+                - A5:2017

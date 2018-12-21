@@ -1,0 +1,16 @@
+generate:
+        payload:
+                - "DNS_MARKER" # like ?link=r4nd0m.wlrm.tl
+                - "http://DNS_MARKER/" 
+        method:
+                - replace
+detect:
+        - oob:
+                - dns
+meta-info:
+        type: info
+        threat: 70
+        tags:
+                - SSRF
+                - Server Side Request Forgery
+                - Link Injection

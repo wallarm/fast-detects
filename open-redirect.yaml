@@ -1,0 +1,18 @@
+generate:
+        payload:
+                - "//DNS_MARKER"
+                - "http://DNS_MARKER/" 
+        method:
+                - replace
+detect:
+        - response:
+                - body: "<META[^>]+content=[^>]+DNS_MARKER"
+        - response:
+                - headers:
+                    - 'Location': DNS_MARKER
+meta-info:
+        type: info
+        threat: 30
+        tags:
+                - Open Redirect
+                - Unsafe Redirection

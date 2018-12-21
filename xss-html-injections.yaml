@@ -1,0 +1,18 @@
+generate:
+        payload: 
+          - "><STR_MARKER><"
+          - "'\"STR_MARKER=x"
+        method: 
+          - replace
+detect:
+        - response:
+            - body:
+              - html:
+                - tag
+        - response:
+            - body:
+              - html:
+                - attr
+meta-info:
+        threat: 60
+        type: xss
