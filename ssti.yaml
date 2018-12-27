@@ -1,0 +1,19 @@
+generate:
+  payload:
+    - ${CALC_MARKER}{php}echo CALC_MARKER;{/php}{{CALC_MARKER}}${{CALC_MARKER}}<%= CALC_MARKER %>
+  method:
+    - postfix
+detect:
+  - response:
+    - body: CALC_MARKER
+meta-info:
+  type: rce
+  threat: 95
+  tags:
+    - OS Commanding
+    - RCE
+    - Remote Code Execution
+    - Template Injection
+    - Server Side Template Injection
+    - OWASP Top 10
+    - OWASP
