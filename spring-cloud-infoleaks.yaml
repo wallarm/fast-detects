@@ -1,0 +1,31 @@
+generate:
+  payload:
+    - env
+    - dump
+    - health
+    - congifprops
+  into: ACTION_NAME
+  method: 
+    - replace
+detect:
+  - response:
+    - headers: 
+      - Content-Type: 'vnd.spring'
+  - response:
+    - body: java\.[a-z][a-z]
+meta-info:
+  type: info
+  threat: 80
+  tags:
+    - Spring
+    - Spring Cloud
+    - OWASP Top-10
+    - Information Leak
+    - Misconfiguration
+    - Insecure Direct Object References
+    - Broken Access Control
+    - OWASP
+    - OWASP Top-10
+    - A4:2010
+    - A4:2013
+    - A5:2017
