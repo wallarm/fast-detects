@@ -1,16 +1,16 @@
 generate:
-        payload: 
-        - /.git/index
-        into: URI
-        method: 
-        - replace
+        - payload: 
+                - /.git/index
+        - into: URI
+        - method: 
+                - replace
 detect:
         - response:
                 - body: ^DIRC
 meta-info:
-        type: info
-        threat: 60
-        tags:
+        - type: info
+        - threat: 60
+        - tags:
                 - GIT
                 - Source Code Disclosure
                 - Misconfiguration

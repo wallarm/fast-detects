@@ -1,15 +1,15 @@
 generate:
-  payload:
+  - payload:
     - ${CALC_MARKER}{php}echo CALC_MARKER;{/php}{{CALC_MARKER}}${{CALC_MARKER}}<%= CALC_MARKER %>
-  method:
+  - method:
     - postfix
 detect:
   - response:
     - body: CALC_MARKER
 meta-info:
-  type: rce
-  threat: 95
-  tags:
+  - type: rce
+  - threat: 95
+  - tags:
     - OS Commanding
     - RCE
     - Remote Code Execution

@@ -1,11 +1,11 @@
 generate:
-  payload:
+  - payload:
     - env
     - dump
     - health
     - congifprops
-  into: ACTION_NAME
-  method: 
+  - into: ACTION_NAME
+  - method: 
     - replace
 detect:
   - response:
@@ -14,9 +14,9 @@ detect:
   - response:
     - body: java\.[a-z][a-z]
 meta-info:
-  type: info
-  threat: 80
-  tags:
+  - type: info
+  - threat: 80
+  - tags:
     - Spring
     - Spring Cloud
     - OWASP Top-10
