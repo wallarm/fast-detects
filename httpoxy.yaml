@@ -1,17 +1,17 @@
 generate:
-        payload:
+        - payload:
                 - "http://DNS_MARKER"
-        method:
+        - method:
                 - replace
-        into:
+        - into:
                 HEADER_HTTP_PROXY
 detect:
         - oob:
                 - dns
 meta-info:
-        type: info
-        threat: 50
-        tags:
+        - type: info
+        - threat: 50
+        - tags:
                 - SSRF
                 - Server Side Request Forgery
                 - Link Injection
