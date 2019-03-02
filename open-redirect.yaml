@@ -1,8 +1,8 @@
 generate:
-        payload:
+        - payload:
                 - "//DNS_MARKER"
                 - "http://DNS_MARKER/" 
-        method:
+        - method:
                 - replace
 detect:
         - response:
@@ -11,8 +11,8 @@ detect:
                 - headers:
                     - 'Location': DNS_MARKER
 meta-info:
-        type: info
-        threat: 30
-        tags:
+        - type: info
+        - threat: 30
+        - tags:
                 - Open Redirect
                 - Unsafe Redirection

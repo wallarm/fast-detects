@@ -1,11 +1,11 @@
 generate:
-        payload: 
+        - payload: 
           - "'\"><img src=//DNS_MARKER/><"
-        method: 
+        - method: 
           - postfix
 detect:
         - oob:
           - dns
 meta-info:
-        threat: 60
-        type: xss
+        - threat: 60
+        - type: xss

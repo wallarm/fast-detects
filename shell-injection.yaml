@@ -1,12 +1,12 @@
 generate:
-        payload:
+        - payload:
                 - ;echo${IFS}$((CALC_MARKER)); # ${IFS} is equal to space
                 - \'getent${IFS}hosts${IFS}DNS_MARKER\'
                 - ;getent${IFS}hosts${IFS}DNS_MARKER;
                 - "`getent hosts DNS_MARKER`" # injection into double quotes and a raw command
                 - "x\ngentent${IFS}hosts${IFS}DNS_MARKER\nx"
 
-        method:
+        - method:
                 - postfix
 detect:
         - oob:
@@ -14,9 +14,9 @@ detect:
         - response:
                 - body: CALC_MARKER
 meta-info:
-        type: rce
-        threat: 95
-        tags:
+        - type: rce
+        - threat: 95
+        - tags:
                 - OS Commanding
                 - RCE
                 - Remote Code Execution
