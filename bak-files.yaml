@@ -1,5 +1,5 @@
 collect:
-        uniq:
+        - uniq:
           - [ACTION_NAME]
 match:
         - ACTION_EXT: ".*" #any file extension like /filename\..*/
