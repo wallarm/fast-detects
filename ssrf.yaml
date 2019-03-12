@@ -1,3 +1,6 @@
+collect:
+        - uniq:
+                - [ URI ]
 generate:
         - payload:
                 - "DNS_MARKER" # like ?link=r4nd0m.wlrm.tl
@@ -13,4 +16,4 @@ meta-info:
         - tags:
                 - SSRF
                 - Server Side Request Forgery
-                - Link Injection
+                - Link Injection # TODO: OWASP and CWE references

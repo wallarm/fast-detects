@@ -1,3 +1,6 @@
+collect:
+  - uniq:
+    - [ URI ]
 generate:
   - payload:
     - ${CALC_MARKER}{php}echo CALC_MARKER;{/php}{{CALC_MARKER}}${{CALC_MARKER}}<%= CALC_MARKER %>
@@ -16,4 +19,4 @@ meta-info:
     - Template Injection
     - Server Side Template Injection
     - OWASP Top 10
-    - OWASP
+    - OWASP # TODO: CWE and WASC references

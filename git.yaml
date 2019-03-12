@@ -1,7 +1,10 @@
+collect:
+        - uniq:
+                - [ URI ]
 generate:
         - payload: 
-                - /.git/index
-        - into: URI
+                - /.git/index # TODO: detect repos w/o index file as well (common case)
+        - into: URI # TODO: check each PATH to find /baseline/.git/index as well
         - method: 
                 - replace
 detect:

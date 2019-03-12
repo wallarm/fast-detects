@@ -1,0 +1,16 @@
+detect:
+  - response:
+    - body: 'Error Occurred While Processing Request'
+    - body: "Server Error in '.*' Application"
+    - body: 'Microsoft OLE DB Provider for ODBC Drivers error'
+    - body: 'error in your SQL syntax'
+    - body: 'Invalid Querystring'
+    - body: 'Input string was not in a correct format'
+    - body: 'An illegal character has been found in the statement'
+meta-info:
+  - type: info
+  - threat: 30
+  - tags:
+    - Application Errors
+    - OWASP Top 10
+    - OWASP

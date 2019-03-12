@@ -1,3 +1,6 @@
+collect:
+  - uniq:
+    - [ URI ]
 generate:
   - payload:
     - env
@@ -18,7 +21,7 @@ meta-info:
   - threat: 80
   - tags:
     - Spring
-    - Spring Cloud
+    - Spring Cloud # TODO: CVE references
     - OWASP Top-10
     - Information Leak
     - Misconfiguration

@@ -1,3 +1,6 @@
+collect:
+        - uniq:
+                - [ HEADER_HOST ] # only check for each single domain name because of environment nature of this bug
 generate:
         - payload:
                 - "http://DNS_MARKER"
@@ -15,4 +18,4 @@ meta-info:
                 - SSRF
                 - Server Side Request Forgery
                 - Link Injection
-                - HTTPoxy
+                - HTTPoxy # TODO: CVE reference

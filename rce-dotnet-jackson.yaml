@@ -1,3 +1,6 @@
+collect:
+        - uniq:
+          - [ URI ]
 match:
         - '.*': '^{' # any data starts with { char
 generate:
@@ -10,4 +13,4 @@ detect:
           - dns
 meta-info:
         - threat: 95
-        - type: rce
+        - type: rce # TODO: tags with CVE, OWASP and WASC references

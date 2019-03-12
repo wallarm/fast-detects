@@ -1,3 +1,6 @@
+collect:
+        - uniq:
+                - [ URI ]
 generate:
         - payload:
                 - ;echo${IFS}$((CALC_MARKER)); # ${IFS} is equal to space

@@ -1,3 +1,6 @@
+collect:
+        - uniq:
+          - [ URI ]
 generate:
         - payload: 
           - "'\"><img src=//DNS_MARKER/><"
@@ -8,4 +11,4 @@ detect:
           - dns
 meta-info:
         - threat: 60
-        - type: xss
+        - type: xss # TODO: WASC, OWASP and CWE references

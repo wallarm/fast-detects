@@ -27,4 +27,4 @@ meta-info:
                 - A5:2017
                 - JBOSS
                 - Wildfly
-                - CVE-2018-1047
+                - CVE-2018-1047 # TODO: more CVE references, it's a common bug. Or we need to split between classic and custom vectors
