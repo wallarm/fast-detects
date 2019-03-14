@@ -7,6 +7,7 @@ detect:
     - body: 'Invalid Querystring'
     - body: 'Input string was not in a correct format'
     - body: 'An illegal character has been found in the statement'
+    - body: 'ERROR: .* LINE [0-9]+:'
 meta-info:
   - type: info
   - threat: 30

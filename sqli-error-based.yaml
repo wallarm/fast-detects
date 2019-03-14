@@ -1,0 +1,19 @@
+collect:
+  - uniq: 
+    - [ URI ]
+generate:
+  - payload: 
+    - '''"\' # '"\ payload to cause any SQL-related crash
+    - "'\\\""
+  - method:
+    - postfix
+detect:
+  - response:
+    - body: '/ERROR: .* LINE [0-9]+/m'
+    - body: 'syntax error at'
+    - body: 'sql error'
+    - body: 'invalid input syntax for '
+    - body: 'unterminated quoted string at'
+meta-info:
+  - type: sqli
+  - threat: 90
