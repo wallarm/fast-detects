@@ -8,5 +8,5 @@ $ docker run -p 8888:8080 -v /path/to/your-own-detects-in-yaml:/opt/custom_exten
 ```
 by GIT repository mapping:
 ```
-$ docker run -p 8888:8080 -e GIT_EXTENSIONS=https://github.com/wallarm/fast/examples/fast_dsl -e WALLARM_API_TOKEN=xxx wallarm/fast
+$ docker run -p 8888:8080 -e GIT_EXTENSIONS=https://github.com/wallarm/fast-detects -e WALLARM_API_TOKEN=xxx wallarm/fast
 ```
