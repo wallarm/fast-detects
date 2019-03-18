@@ -1,3 +1,6 @@
+generate:
+  - payload:
+    - '%C1%81'
 detect:
   - response:
     - body: 'Error Occurred While Processing Request'
@@ -7,7 +10,12 @@ detect:
     - body: 'Invalid Querystring'
     - body: 'Input string was not in a correct format'
     - body: 'An illegal character has been found in the statement'
-    - body: 'ERROR: .* LINE [0-9]+:'
+    - body: 'ERROR:.*LINE [0-9]+:'
+    - body: 'Warning:.+ Invalid multibyte sequence'
+    - body: '<b>Fatal Error<\/b>: (.*)'
+    - body: '<b>Warning<\/b>: (.*)'
+    - body: '<b>Notice<\/b>: (.*)'
+    - body: '<\/b> on line <b>(.*)'
 meta-info:
   - type: info
   - threat: 30

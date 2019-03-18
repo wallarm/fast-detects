@@ -4,7 +4,7 @@ collect:
 generate:
   - payload:
     - "//DNS_MARKER"
-    - "http://DNS_MARKER/" 
+    - "http://DNS_MARKER/"
   - method:
     - replace
 detect:
