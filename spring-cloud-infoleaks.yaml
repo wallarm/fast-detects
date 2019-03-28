@@ -8,11 +8,11 @@ generate:
     - health
     - congifprops
   - into: ACTION_NAME
-  - method: 
+  - method:
     - replace
 detect:
   - response:
-    - headers: 
+    - headers:
       - Content-Type: 'vnd.spring'
   - response:
     - body: java\.[a-z][a-z]

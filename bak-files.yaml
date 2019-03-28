@@ -1,31 +1,31 @@
 collect:
-        - uniq:
-          - [ACTION_NAME]
+  - uniq:
+    - [ACTION_NAME]
 match:
-        - ACTION_EXT: ".*" #any file extension like /filename\..*/
+  - ACTION_EXT: ".*" # any file extension like /filename\..*/
 generate:
-        - payload: 
-            - .bak
-            - .old
-            - .tmp
-        - into: URI
-        - method: 
-            - postfix
+  - payload:
+    - .bak
+    - .old
+    - .tmp
+  - into: URI
+  - method:
+    - postfix
 detect:
-        - response:
-          - headers:
-            - 'Content-Type': '!(html|json|xml)'
+  - response:
+    - headers:
+      - 'Content-Type': '!(html|json|xml)'
 meta-info:
-        - type: info
-        - threat: 60
-        - tags:
-                - Temporary Files
-                - Source Code Disclosure
-                - Misconfiguration
-                - Insecure Direct Object References
-                - Broken Access Control
-                - OWASP
-                - OWASP Top-10
-                - A4:2010
-                - A4:2013
-                - A5:2017
+  - type: info
+  - threat: 60
+  - tags:
+    - Temporary Files
+    - Source Code Disclosure
+    - Misconfiguration
+    - Insecure Direct Object References
+    - Broken Access Control
+    - OWASP
+    - OWASP Top-10
+    - A4:2010
+    - A4:2013
+    - A5:2017

