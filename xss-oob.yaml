@@ -1,6 +1,6 @@
-collect:
-        - uniq:
-          - [ URI ]
+#collect:
+#        - uniq:
+#          - [ URI ]
 generate:
         - payload: 
           - "'\"><img src=//DNS_MARKER/><"

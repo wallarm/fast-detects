@@ -1,6 +1,6 @@
-collect:
-        - uniq:
-          - [ URI ]
+#collect:
+#        - uniq:
+#          - [ URI ]
 match:
         - '.*': '^<' #any data starts with < char
 generate:
