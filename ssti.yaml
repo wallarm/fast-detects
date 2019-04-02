@@ -1,6 +1,3 @@
-#collect:
-#  - uniq:
-#    - [ URI ]
 generate:
   - payload:
     - ${CALC_MARKER}{php}echo CALC_MARKER;{/php}{{CALC_MARKER}}${{CALC_MARKER}}<%= CALC_MARKER %>

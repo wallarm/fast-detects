@@ -1,14 +1,11 @@
-#collect:
-#        - uniq:
-#          - [ URI ]
 generate:
-        - payload: 
-          - "'\"><img src=//DNS_MARKER/><"
-        - method: 
-          - postfix
+  - payload:
+    - "'\"><img src=//DNS_MARKER/><"
+  - method:
+    - postfix
 detect:
-        - oob:
-          - dns
+  - oob:
+    - dns
 meta-info:
-        - threat: 60
-        - type: xss # TODO: WASC, OWASP and CWE references
+  - threat: 60
+  - type: xss # TODO: WASC, OWASP and CWE references

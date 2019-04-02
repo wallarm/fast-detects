@@ -1,21 +1,23 @@
-#collect:
-#        - uniq:
-#          - [ URI ]
 generate:
-        - payload: 
-          - "><STR_MARKER><"
-          - "'\"STR_MARKER=x"
-        - method: 
-          - replace
+  - payload:
+    - "'STR_MARKER><STR_MARKER><"
+    - '"STR_MARKER><STR_MARKER><'
+    - '<h1 STR_MARKER=x>'
+    - '%3CSTR_MARKER%3E'
+    - "'\"STR_MARKER=x"
+    - '1 ''"\''\" STR_MARKER=1 </title></textarea></style></scRipt/--!><STR_MARKER>'
+    # js injections
+    - 'STR_MARKER'
+    - "'\";\n/**/;STR_MARKER=1;/*"
+    - "';\n/**/;STR_MARKER=1;//"
+    - "\n/**/;STR_MARKER=1;/*"
+    - "\n/**/;STR_MARKER=1;//"
+  - method:
+    - replace
 detect:
-        - response:
-            - body:
-              - html:
-                - tag
-        - response:
-            - body:
-              - html:
-                - attr
+  - response:
+    - body:
+      - html
 meta-info:
-        - threat: 60
-        - type: xss # TODO: OWASP, CWE, WASC references
+  - threat: 60
+  - type: xss # TODO: OWASP, CWE, WASC references

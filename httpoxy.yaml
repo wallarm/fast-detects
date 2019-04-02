@@ -1,21 +1,20 @@
 collect:
-        - uniq:
-                - [ HEADER_HOST ] # only check for each single domain name because of environment nature of this bug
+  - uniq:
+    - [ HEADER_HOST ] # only check for each single domain name because of environment nature of this bug
 generate:
-        - payload:
-                - "http://DNS_MARKER"
-        - method:
-                - replace
-        - into:
-                HEADER_HTTP_PROXY
+  - payload:
+    - "http://DNS_MARKER"
+  - method:
+    - replace
+  - into: HEADER_HTTP_PROXY
 detect:
-        - oob:
-                - dns
+  - oob:
+    - dns
 meta-info:
-        - type: info
-        - threat: 50
-        - tags:
-                - SSRF
-                - Server Side Request Forgery
-                - Link Injection
-                - HTTPoxy # TODO: CVE reference
+  - type: info
+  - threat: 50
+  - tags:
+    - SSRF
+    - Server Side Request Forgery
+    - Link Injection
+    - HTTPoxy # TODO: CVE reference

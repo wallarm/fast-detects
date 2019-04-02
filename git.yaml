@@ -1,27 +1,27 @@
 collect:
-        - uniq:
-                - [ URI ]
+  - uniq:
+    - [ URI ]
 generate:
-        - payload: 
-                - /.git/index # TODO: detect repos w/o index file as well (common case)
-        - into: URI # TODO: check each PATH to find /baseline/.git/index as well
-        - method: 
-                - replace
+  - payload:
+    - /.git/index # TODO: detect repos w/o index file as well (common case)
+  - into: URI # TODO: check each PATH to find /baseline/.git/index as well
+  - method:
+    - replace
 detect:
-        - response:
-                - body: ^DIRC
+  - response:
+    - body: ^DIRC
 meta-info:
-        - type: info
-        - threat: 60
-        - tags:
-                - GIT
-                - Source Code Disclosure
-                - Misconfiguration
-                - Directory Listing
-                - Insecure Direct Object References
-                - Broken Access Control
-                - OWASP
-                - OWASP Top-10
-                - A4:2010
-                - A4:2013
-                - A5:2017
+  - type: info
+  - threat: 60
+  - tags:
+    - GIT
+    - Source Code Disclosure
+    - Misconfiguration
+    - Directory Listing
+    - Insecure Direct Object References
+    - Broken Access Control
+    - OWASP
+    - OWASP Top-10
+    - A4:2010
+    - A4:2013
+    - A5:2017
