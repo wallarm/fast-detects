@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-#collect:
-#        - uniq:
-#                - [ URI ]
-=======
->>>>>>> b87d3241eadae3f03ea808687425653fb7dc4cbf
 generate:
   - payload:
     - ;echo${IFS}$((CALC_MARKER)); # ${IFS} is equal to space
