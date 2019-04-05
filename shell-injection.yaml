@@ -8,6 +8,7 @@ generate:
     - "x\ngentent${IFS}hosts${IFS}DNS_MARKER\nx"
   - method:
     - postfix
+    - replace
 detect:
   - oob:
     - dns
