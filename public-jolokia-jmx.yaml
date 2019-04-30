@@ -1,0 +1,22 @@
+collect:
+  - uniq:
+    - [ URI ]
+generate:
+  - payload:
+    - /jolokia/list
+  - into: URI
+  - method:
+    - replace
+detect:
+  - response:
+    - body: 'java\.lang'
+  - response:
+    - body: 'java\.util'
+meta-info:
+  - type: info
+  - threat: 60
+  - tags:
+    - Misconfiguration
+    - Directory Listing
+    - Insecure Direct Object References
+    - Broken Access Control
