@@ -1,0 +1,20 @@
+collect:
+  - uniq:
+    - [ URI ]
+generate:
+  - payload:
+    - /v2/_catalog
+  - into: URI
+  - method:
+    - replace
+detect:
+  - response:
+    - headers:
+      - 'Content-Type': 'application\/json'
+meta-info:
+  - type: info
+  - threat: 60
+  - tags:
+    - Docker Registry
+    - Misconfiguration
+    - Broken Access Control
