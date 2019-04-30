@@ -1,0 +1,28 @@
+collect:
+  - uniq:
+    - [ URI ]
+generate:
+  - payload:
+    - "::$DATA"
+    - "::$INDEX_ALLOCATION"
+    - ":$I30:$INDEX_ALLOCATION"
+  - into:
+    - ACTION_EXT
+    - ACTION_NAME
+    - PATH 
+  - method:
+    - postfix
+detect:
+  - response:
+    - headers:
+      - 'Content-Type': '.*binary.*'
+meta-info:
+  - type: info
+  - threat: 60
+  - tags:
+    - Source Code Disclosure
+    - Misconfiguration
+    - Directory Listing
+    - Insecure Direct Object References
+    - Broken Access Control
+    - OWASP
