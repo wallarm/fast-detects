@@ -1,6 +1,8 @@
 collect:
   - uniq:
     - [ URI ]
+generate:
+  - into: URI
 detect:
   - response:
     - body: 'commit\s[a-f0-9]{40}.*(\n+)Author\:.*\nDate\:'
