@@ -119,7 +119,6 @@ detect:
     - body: 'java\.sql\.SQLException'
     - body: 'Unexpected end of command in statement'
     - body: '\[Macromedia\]\[SQLServer JDBC Driver\]'
-    - body: 'SELECT .*? FROM .*?'
     - body: 'UPDATE .*? SET .*?'
     - body: 'INSERT INTO .*?'
     - body: 'Unknown column'
