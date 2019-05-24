@@ -16,6 +16,7 @@ generate:
     - replace
 detect:
   - response:
+    - strict_type: html
     - body:
       - html
 meta-info:
