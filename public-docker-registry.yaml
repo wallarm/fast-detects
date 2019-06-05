@@ -9,8 +9,7 @@ generate:
     - replace
 detect:
   - response:
-    - headers:
-      - 'Content-Type': 'application\/json'
+    - body: '\{"repositories":\[.*\]'
 meta-info:
   - type: info
   - threat: 60
