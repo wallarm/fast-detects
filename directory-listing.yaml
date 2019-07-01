@@ -1,0 +1,24 @@
+collect:
+  - uniq:
+    - [ URI ]
+generate:
+  - payload:
+    - /etc
+    - /dev
+  - method:
+    - replace
+detect:
+  - response:
+    - body: '(passwd).*(shadow-).*(localtime)'
+    - body: '(core).*(stdout).*(null)'
+meta-info:
+  - type: ptrav
+  - threat: 80
+  - tags:
+    - Path Traversal
+    - Misconfiguration
+    - Directory Listing
+    - Insecure Direct Object References
+    - Broken Access Control
+    - OWASP
+    - OWASP Top-10
