@@ -1,0 +1,22 @@
+#Attention! For this DSL detect you must use a custom test policy with URI point.
+collect:
+ - uniq:
+   - [ HEADER_HOST ]
+generate:
+  - into: URI
+  - payload:
+    - /debug/default
+    - /debug/default/index
+    - /?r=debug/default
+  - method:
+    - replace
+detect:
+  - response:
+    - body: '(Yii Debugger)|(yii-debug-toolbar)'
+meta-info:
+  - type: info
+  - threat: 70
+  - tags:
+    - Yii Debugger
+    - Yiiframework
+    - Infoleak

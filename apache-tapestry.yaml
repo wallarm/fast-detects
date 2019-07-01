@@ -1,0 +1,22 @@
+collect:
+  - uniq:
+    - [ URI ]
+generate:
+  - into: URI
+  - payload:
+    - assets/z
+    - assets/z/
+    - assets/app
+    - assets/app/
+  - method:
+    - postfix
+detect:
+  - response:
+    - headers:
+      - 'X-Tapestry-ErrorMessage': '.*'
+meta-info:
+  - type: info
+  - threat: 80
+  - tags:
+    - Infoleak
+    - Apache Tapestry
