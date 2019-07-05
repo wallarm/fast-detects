@@ -1,0 +1,21 @@
+collect:
+  - uniq:
+    - [ HEADER_HOST ]
+generate:
+  - into:
+    - URI
+  - payload:
+    - /_profiler/empty/search/results
+  - method:
+    - replace
+detect:
+  - response: 
+    - body: '<title>Symfony Profiler<\/title>'
+    - body: '<title>Profiler<\/title>'
+    - body: '<!-- START of Symfony Web Debug Toolbar -->'
+meta-info:
+  - type: info
+  - threat: 70
+  - tags:
+    - Symfony Debug Toolbar
+    - Symfony Profiler

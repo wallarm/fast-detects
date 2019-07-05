@@ -1,0 +1,26 @@
+collect:
+  - uniq:
+    - [ HEADER_HOST ]
+generate:
+  - into:
+    - URI
+  - payload:
+    - phpinfo
+    - phpinfo.php
+    - phpinfo.php5
+    - phpinfo.php7
+    - php.php
+    - info.php
+    - info.php5
+    - info.php7
+  - method:
+    - replace
+detect:
+  - response:
+    - body: '<title>phpinfo\(\)<\/title>'
+meta-info:
+  - type: info
+  - threat: 30
+  - tags:
+    - phpinfo
+    - Information Exposure
