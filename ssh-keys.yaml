@@ -1,0 +1,39 @@
+collect:
+  - uniq:
+    - [ HEADER_HOST ]
+generate:
+  - into:
+    - URI
+  - payload:
+    - .ssh
+    - .ssh.asp
+    - .ssh.php
+    - .ssh/id_dsa
+    - .ssh/id_rsa
+    - .ssh/id_rsa.key
+    - .ssh/id_rsa.key~
+    - .ssh/id_rsa.priv
+    - .ssh/id_rsa.priv~
+    - .ssh/id_rsa.pub
+    - .ssh/id_rsa.pub~
+    - .ssh/id_rsa~
+    - id_dsa
+    - id_dsa.ppk
+    - id_rsa
+    - id_rsa.pub
+  - method:
+    - replace
+detect:
+  - response:
+    - body: '-----BEGIN RSA PRIVATE KEY-----'
+    - body: '-----BEGIN ENCRYPTED PRIVATE KEY-----'
+    - body: '-----BEGIN PUBLIC KEY-----'
+    - body: '-----BEGIN DSA PRIVATE KEY-----'
+    - body: 'ssh-rsa'
+    - body: 'ssh-dsa'
+meta-info:
+  - type: info
+  - threat: 30
+  - tags:
+    - Information Exposure
+    - ssh authorized_keys
