@@ -1,0 +1,25 @@
+collect:
+  - uniq:
+    - [ URI ]
+generate:
+  - into: 
+    - HEADER_ORIGIN
+    - HEADER_REFERER
+  - payload:
+    - STR_MARKER
+  - method:
+    - postfix
+    - prefix
+    - replace
+detect:
+  - response:
+    - headers:
+      - 'Access-Control-Allow-Origin': 'STR_MARKER'
+    - body: 'STR_MARKER'
+meta-info:
+  - type: info
+  - threat: 30
+  - tags:
+    - CORS
+    - Cross-Origin Resource Sharing
+    - Header Origin/Referer Reflect

@@ -1,0 +1,19 @@
+collect:
+  - uniq:
+    - [ URI ]
+generate:
+  - payload:
+    - "%0d%0ax-crlf-header: STR_MARKER"
+    - "%0ax-crlf-header: STR_MARKER"
+  - method:
+    - postfix
+detect:
+  - response:
+    - headers:
+      - 'x-crlf-header': 'STR_MARKER'
+meta-info:
+  - type: info
+  - threat: 30
+  - tags: 
+    - CRLF
+    - Injection

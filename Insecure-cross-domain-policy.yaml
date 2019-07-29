@@ -1,0 +1,26 @@
+collect:
+  - uniq:
+    - [ HEADER_HOST ]
+generate:
+  - into: URI
+  - payload:
+    - 'crossdomain.xml'
+    - 'clientaccesspolicy.xml'
+  - method:
+    - replace
+detect:
+  - response:
+    - body: '<allow-access-from domain="\*"'
+    - body: '<allow-access-from domain="http://\*"'
+    - body: '<allow-access-from domain="https://\*"'
+    - body: '<domain uri="\*"'
+    - body: '<domain uri="http://\*"'
+    - body: '<domain uri="https://\*"'
+meta-info:
+  - type: info
+  - threat: 25
+  - tags: 
+    - CORS
+    - Cross-origin resource sharing
+    - CWE-942
+    - Misconfiguration

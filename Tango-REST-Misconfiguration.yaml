@@ -1,0 +1,20 @@
+collect:
+  - uniq:
+    - [ HEADER_HOST ]
+generate:
+  - into: URI
+  - payload:
+    - 'tango/console'
+    - 'tango/rest'
+  - method:
+    - replace
+detect:
+  - response:
+    - headers:
+      - 'WWW-Authenticate': 'Basic realm="TangoREST"'
+meta-info:
+  - type: info
+  - threat: 25
+  - tags: 
+    - TangoREST
+    - Misconfiguration
