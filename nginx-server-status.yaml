@@ -1,0 +1,21 @@
+collect:
+ - uniq:
+   - [ HEADER_HOST ]
+generate:
+  - into: URI
+  - payload:
+    - nginx_status
+    - nginx-status
+  - method:
+    - replace
+detect:
+  - response:
+    - body: "Active connections"
+    - body: "server accepts handled requests"
+meta-info:
+  - type: info
+  - threat: 20
+  - tags:
+    - Nginx server status
+    - Disclosure of technical information
+    - CWE-200 Information Exposure

