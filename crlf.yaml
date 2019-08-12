@@ -12,7 +12,7 @@ detect:
     - headers:
       - 'x-crlf-header': 'STR_MARKER'
 meta-info:
-  - type: info
+  - type: crlf
   - threat: 30
   - tags: 
     - CRLF

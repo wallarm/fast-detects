@@ -10,12 +10,8 @@ generate:
     - replace
 detect:
   - response:
-    - body: '<allow-access-from domain="\*"'
-    - body: '<allow-access-from domain="http://\*"'
-    - body: '<allow-access-from domain="https://\*"'
-    - body: '<domain uri="\*"'
-    - body: '<domain uri="http://\*"'
-    - body: '<domain uri="https://\*"'
+    - body: '<allow-access-from domain=".*\*"'
+    - body: '<domain uri=".*\*"'
 meta-info:
   - type: info
   - threat: 25
