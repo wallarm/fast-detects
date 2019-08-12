@@ -1,0 +1,24 @@
+collect:
+  - uniq:
+    - [ HEADER_HOST ]
+generate:
+  - into: URI
+  - payload:
+    - 'manager/html/'
+    - 'examples/'
+    - 'examples/jsp/'
+  - method:
+    - replace
+detect:
+  - response:
+    - body: '<title>JSP Examples<\/title>'
+    - body: '<title>JSP 2.0 Examples'
+    - body: '<title>Apache Tomcat Examples<\/title>'
+  - headers:
+      - 'WWW-Authenticate': 'Basic realm="Tomcat Manager Application"'
+meta-info:
+  - type: info
+  - threat: 25
+  - tags: 
+    - Apache Tomcat
+    - Misconfiguration
