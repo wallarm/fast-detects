@@ -1,5 +1,3 @@
-match:
-  - '.*': '^<' # any data starts with < char
 generate:
   - payload:
     - !!str |
