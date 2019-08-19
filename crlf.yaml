@@ -12,8 +12,8 @@ detect:
     - headers:
       - 'x-crlf-header': 'STR_MARKER'
 meta-info:
-  - type: crlf
+  - type: info
   - threat: 30
-  - tags: 
+  - tags:
     - CRLF
     - Injection

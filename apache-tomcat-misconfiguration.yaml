@@ -14,11 +14,11 @@ detect:
     - body: '<title>JSP Examples<\/title>'
     - body: '<title>JSP 2.0 Examples'
     - body: '<title>Apache Tomcat Examples<\/title>'
-  - headers:
-      - 'WWW-Authenticate': 'Basic realm="Tomcat Manager Application"'
+    - headers:
+        - 'WWW-Authenticate': 'Basic realm="Tomcat Manager Application"'
 meta-info:
   - type: info
   - threat: 25
-  - tags: 
+  - tags:
     - Apache Tomcat
     - Misconfiguration
