@@ -1,15 +1,4 @@
 #Attention! For this DSL detect you must use a custom test policy with HEADER_* insertion point!
-
-meta-info:
-  - title: "Weak basic authentication credentials"
-  - type: "info"
-  - threat: 70
-  - description: >
-        This vulnerability is due to the use of predictably paired logins/passwords when accessing the service from the internet.
-        Do not use weak passwords, which are short, default, common or easy to guess.
-  - tags:
-    - http_auth
-
 collect:
   - uniq:
     - [URI]
@@ -542,3 +531,13 @@ generate:
 detect:
   - response:
     - status: 200
+
+meta-info:
+  - title: "Weak basic authentication credentials"
+  - type: "info"
+  - threat: 70
+  - description: >
+        This vulnerability is due to the use of predictably paired logins/passwords when accessing the service from the internet.
+        Do not use weak passwords, which are short, default, common or easy to guess.
+  - tags:
+    - http_auth

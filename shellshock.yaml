@@ -1,17 +1,4 @@
 #Attention! For this DSL detect you must use a custom test policy with HEADER_* insertion point!
-
-meta-info:
-  - title: "Bash remote code execution vulnerability (ShellShock, CVE-2014-6271, CVE-2014-6278, CVE-2014-7169)"
-  - type: "rce"
-  - threat: 100
-  - description: "This vulnerability allows remote attackers to execute arbitrary code via a crafted environment"
-  - tags:
-    - Bashdoor
-    - shellshock
-    - CVE 2014-6271
-    - CVE-2014-6278
-    - CVE-2014-7169
-
 collect:
   - uniq:
     - [URI]
@@ -36,3 +23,16 @@ detect:
   - response:
     - body: CALC_MARKER
     - headers: CALC_MARKER
+
+
+meta-info:
+  - title: "Bash remote code execution vulnerability (ShellShock, CVE-2014-6271, CVE-2014-6278, CVE-2014-7169)"
+  - type: "rce"
+  - threat: 100
+  - description: "This vulnerability allows remote attackers to execute arbitrary code via a crafted environment"
+  - tags:
+    - Bashdoor
+    - shellshock
+    - CVE 2014-6271
+    - CVE-2014-6278
+    - CVE-2014-7169

@@ -1,3 +1,11 @@
+send:
+  - method: GET
+    url: /securityRealm/user/admin/api/xml
+
+detect:
+  - response:
+    - body: "<user _class='hudson.model.User'>"
+
 meta-info:
   - type: info
   - threat: 50
@@ -6,11 +14,3 @@ meta-info:
     - Information Leak
     - CVE-2017-1000395
     - Pre-auth User Information Leakage
-
-send:
-  - method: GET
-    url: /securityRealm/user/admin/api/xml
-
-detect:
-  - response:
-    - body: "<user _class='hudson.model.User'>"
