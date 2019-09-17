@@ -1,17 +1,13 @@
-collect:
-  - uniq:
-    - [ URI ]
-generate:
-  - payload:
-    - /jolokia/list
-  - into: URI
-  - method:
-    - replace
+send:
+  - method: 'GET'
+    url: '/jolokia/list'
+
 detect:
   - response:
     - body: 'java\.lang'
   - response:
     - body: 'java\.util'
+
 meta-info:
   - type: info
   - threat: 60

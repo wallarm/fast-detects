@@ -1,20 +1,18 @@
-collect:
-  - uniq:
-    - [ HEADER_HOST ]
-generate:
-  - into:
-    - URI
-  - payload:
-    - .svn/
-    - .svn/entries
-    - .svnignore
-  - method:
-    - replace
+send:
+  - method: 'GET'
+    url: '.svn/'
+
+  - method: 'GET'
+    url: '.svn/entries'
+
+  - method: 'GET'
+    url: '.svnignore'
+
 detect:
   - response:
     - body: '<title>Index of \/\.svn'
     - body: '\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{6}Z'
-    - body: '\d{4}-\d{2}-\d\w+:\d{2}:\d{2}\.\d{6}\w' # From acunetix12
+
 meta-info:
   - type: info
   - threat: 30

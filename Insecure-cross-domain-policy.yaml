@@ -1,17 +1,15 @@
-collect:
-  - uniq:
-    - [ HEADER_HOST ]
-generate:
-  - into: URI
-  - payload:
-    - 'crossdomain.xml'
-    - 'clientaccesspolicy.xml'
-  - method:
-    - replace
+send:
+  - method: 'GET'
+    url: '/crossdomain.xml'
+
+  - method: GET
+    url: '/clientaccesspolicy.xml'
+
 detect:
   - response:
     - body: '<allow-access-from domain=".*\*"'
     - body: '<domain uri=".*\*"'
+
 meta-info:
   - type: info
   - threat: 25

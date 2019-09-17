@@ -1,17 +1,15 @@
-collect:
-  - uniq:
-    - [ HEADER_HOST ]
-generate:
-  - into: URI
-  - payload:
-    - 'tango/console'
-    - 'tango/rest'
-  - method:
-    - replace
+send:
+  - method: 'GET'
+    url: 'tango/console'
+
+  - method: 'GET'
+    url: 'tango/rest'
+
 detect:
   - response:
     - headers:
       - 'WWW-Authenticate': 'Basic realm="TangoREST"'
+
 meta-info:
   - type: info
   - threat: 25
