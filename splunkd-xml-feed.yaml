@@ -1,0 +1,15 @@
+send:
+  - method: 'GET'
+    url: '/'
+
+detect:
+  - response:
+    - body: '<title>splunkd</title>'
+
+meta-info:
+  - type: info
+  - threat: 30
+  - tags:
+    - Splunkd XML feed
+    - Infoleak
+    - Information Exposure
