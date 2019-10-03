@@ -1,0 +1,29 @@
+send:
+  - method: 'POST'
+    url: '/graphql'
+    headers:
+       - Content-Type: application/json
+    body: '{"query":"query {__schema{types {name}}}","variables":{},"operationName":null}'
+
+  - method: 'POST'
+    url: '/api/graphql'
+    headers:
+       - Content-Type: application/json
+    body: '{"query":"query {__schema{types {name}}}","variables":{},"operationName":null}'
+
+  - method: 'POST'
+    url: '/graphql/'
+    headers:
+       - Content-Type: application/json
+    body: '{"query":"query {__schema{types {name}}}","variables":{},"operationName":null}'
+
+detect: 
+  - response: 
+    - body: '{"data":{"__schema"'
+
+meta-info:
+  - type: info
+  - threat: 20
+  - tags:
+    - Graphql
+    - Information Exposure
