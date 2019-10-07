@@ -9,6 +9,8 @@ detect:
 meta-info:
   - type: info
   - threat: 20
+  - applicable_for: 
+    - fast
   - tags:
     - Apache server status
     - Disclosure of technical information

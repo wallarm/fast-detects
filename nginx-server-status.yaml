@@ -12,6 +12,8 @@ detect:
 meta-info:
   - type: info
   - threat: 20
+  - applicable_for: 
+    - fast
   - tags:
     - Nginx server status
     - Disclosure of technical information
