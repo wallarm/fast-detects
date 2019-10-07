@@ -1,26 +1,37 @@
-collect:
-  - uniq:
-    - [ HEADER_HOST ]
-generate:
-  - into:
-    - URI
-  - payload:
-    - phpinfo
-    - phpinfo.php
-    - phpinfo.php5
-    - phpinfo.php7
-    - php.php
-    - info.php
-    - info.php5
-    - info.php7
-  - method:
-    - replace
+send:
+  - method: 'GET'
+    url: '/phpinfo'
+
+  - method: 'GET'
+    url: '/phpinfo.php'
+
+  - method: 'GET'
+    url: '/phpinfo.php5'
+
+  - method: 'GET'
+    url: '/phpinfo.php7'
+
+  - method: 'GET'
+    url: '/php.php'
+
+  - method: 'GET'
+    url: '/info.php'
+
+  - method: 'GET'
+    url: '/info.php5'
+
+  - method: 'GET'
+    url: '/info.php7'
+
 detect:
   - response:
     - body: '<title>phpinfo\(\)<\/title>'
+
 meta-info:
   - type: info
   - threat: 30
+  - applicable_for: 
+    - fast
   - tags:
     - phpinfo
     - Information Exposure

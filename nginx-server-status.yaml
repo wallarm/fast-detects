@@ -1,0 +1,20 @@
+send:
+  - method: 'GET'
+    url: '/nginx_status'
+
+  - method: 'GET'
+    url: '/nginx-status'
+
+detect:
+  - response:
+    - body: "Active connections"
+    - body: "server accepts handled requests"
+meta-info:
+  - type: info
+  - threat: 20
+  - applicable_for: 
+    - fast
+  - tags:
+    - Nginx server status
+    - Disclosure of technical information
+    - CWE-200 Information Exposure
