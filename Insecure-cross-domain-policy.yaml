@@ -13,6 +13,8 @@ detect:
 meta-info:
   - type: info
   - threat: 25
+  - applicable_for: 
+    - fast
   - tags: 
     - CORS
     - Cross-origin resource sharing
