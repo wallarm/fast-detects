@@ -10,6 +10,8 @@ detect:
 meta-info:
   - type: info
   - threat: 67
+  - applicable_for: 
+    - fast
   - tags:
     - Telerik Web UI
     - Possible RCE

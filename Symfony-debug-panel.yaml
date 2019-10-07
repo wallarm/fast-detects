@@ -11,6 +11,8 @@ detect:
 meta-info:
   - type: info
   - threat: 67
+  - applicable_for: 
+    - fast
   - tags:
     - Symfony Debug Toolbar
     - Symfony Profiler

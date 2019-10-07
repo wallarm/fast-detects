@@ -9,6 +9,8 @@ detect:
 meta-info:
   - type: info
   - threat: 60
+  - applicable_for: 
+    - fast
   - tags:
     - Docker Registry
     - Misconfiguration

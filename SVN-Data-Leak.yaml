@@ -16,6 +16,8 @@ detect:
 meta-info:
   - type: info
   - threat: 30
+  - applicable_for: 
+    - fast
   - tags:
     - SVN Data Leak
     - Information Exposure
