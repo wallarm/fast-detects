@@ -1,14 +1,13 @@
-collect:
-  - uniq:
-    - [ HEADER_HOST ]
-generate:
-  - into: URI
-  - payload:
-    - 'manager/html/'
-    - 'examples/'
-    - 'examples/jsp/'
-  - method:
-    - replace
+send:
+  - method: 'GET'
+    url: 'manager/html/'
+
+  - method: 'GET'
+    url: 'examples/'
+
+  - method: 'GET'
+    url: 'examples/jsp/'
+
 detect:
   - response:
     - body: '<title>JSP Examples<\/title>'
@@ -16,6 +15,7 @@ detect:
     - body: '<title>Apache Tomcat Examples<\/title>'
     - headers:
         - 'WWW-Authenticate': 'Basic realm="Tomcat Manager Application"'
+
 meta-info:
   - type: info
   - threat: 25

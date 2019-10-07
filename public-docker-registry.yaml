@@ -1,18 +1,16 @@
-collect:
-  - uniq:
-    - [ URI ]
-generate:
-  - payload:
-    - /v2/_catalog
-  - into: URI
-  - method:
-    - replace
+send:
+  - method: 'GET'
+    url: '/v2/_catalog'
+
 detect:
   - response:
     - body: '\{"repositories":\[.*\]'
+
 meta-info:
   - type: info
   - threat: 60
+  - applicable_for: 
+    - fast
   - tags:
     - Docker Registry
     - Misconfiguration

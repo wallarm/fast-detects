@@ -1,28 +1,52 @@
-collect:
-  - uniq:
-    - [ HEADER_HOST ]
-generate:
-  - into:
-    - URI
-  - payload:
-    - .ssh
-    - .ssh.asp
-    - .ssh.php
-    - .ssh/id_dsa
-    - .ssh/id_rsa
-    - .ssh/id_rsa.key
-    - .ssh/id_rsa.key~
-    - .ssh/id_rsa.priv
-    - .ssh/id_rsa.priv~
-    - .ssh/id_rsa.pub
-    - .ssh/id_rsa.pub~
-    - .ssh/id_rsa~
-    - id_dsa
-    - id_dsa.ppk
-    - id_rsa
-    - id_rsa.pub
-  - method:
-    - replace
+send:
+  - method: 'GET'
+    url: '.ssh'
+
+  - method: 'GET'
+    url: '.ssh.asp'
+
+  - method: 'GET'
+    url: '.ssh.php'
+  
+  - method: 'GET'
+    url: '.ssh/id_dsa'
+
+  - method: 'GET'
+    url: '.ssh/id_rsa'
+
+  - method: 'GET'
+    url: '.ssh/id_rsa.key'
+
+  - method: 'GET'
+    url: '.ssh/id_rsa.key~'
+
+  - method: 'GET'
+    url: '.ssh/id_rsa.priv'
+
+  - method: 'GET'
+    url: '.ssh/id_rsa.priv~'
+
+  - method: 'GET'
+    url: '.ssh/id_rsa.pub'
+
+  - method: 'GET'
+    url: '.ssh/id_rsa.pub~'
+
+  - method: 'GET'
+    url: '.ssh/id_rsa~'
+
+  - method: 'GET'
+    url: 'id_dsa'
+
+  - method: 'GET'
+    url: 'id_dsa.ppk'
+
+  - method: 'GET'
+    url: 'id_rsa'
+
+  - method: 'GET'
+    url: 'id_rsa.pub'
+
 detect:
   - response:
     - body: '-----BEGIN RSA PRIVATE KEY-----'
@@ -31,6 +55,7 @@ detect:
     - body: '-----BEGIN DSA PRIVATE KEY-----'
     - body: 'ssh-rsa'
     - body: 'ssh-dsa'
+
 meta-info:
   - type: info
   - threat: 30
