@@ -8,7 +8,7 @@ detect:
   - oob:
     - dns
 meta-info:
-  - type: info
+  - type: ssrf
   - threat: 70
   - tags:
     - SSRF
