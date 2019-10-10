@@ -16,7 +16,7 @@ detect:
     - headers:
         - 'Location': DNS_MARKER
 meta-info:
-  - type: info
+  - type: redir
   - threat: 30
   - tags:
     - Open Redirect

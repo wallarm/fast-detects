@@ -17,7 +17,7 @@ detect:
     - headers:
       - 'Content-Type': '.*binary.*'
 meta-info:
-  - type: info
+  - type: idor
   - threat: 60
   - tags:
     - Source Code Disclosure

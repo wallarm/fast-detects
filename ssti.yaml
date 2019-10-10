@@ -7,7 +7,7 @@ detect:
   - response:
     - body: CALC_MARKER
 meta-info:
-  - type: rce
+  - type: ssti
   - threat: 95
   - tags:
     - OS Commanding

@@ -16,7 +16,7 @@ detect:
     - headers:
       - 'Content-Type': '!(html|json|xml)'
 meta-info:
-  - type: info
+  - type: idor
   - threat: 60
   - tags:
     - Temporary Files

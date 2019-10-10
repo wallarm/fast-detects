@@ -534,7 +534,7 @@ detect:
 
 meta-info:
   - title: "Weak basic authentication credentials"
-  - type: "info"
+  - type: auth
   - threat: 70
   - description: >
         This vulnerability is due to the use of predictably paired logins/passwords when accessing the service from the internet.
