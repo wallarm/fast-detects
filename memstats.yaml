@@ -1,0 +1,16 @@
+send:
+  - method: 'GET'
+    url: '/debug/vars'
+
+detect:
+ - response:
+   - body: '"Alloc":\d+,"TotalAlloc":\d+,"Sys":\d+,"Lookups":\d+,"Mallocs":\d+,"Frees":\d+'
+
+meta-info:
+ - type: info
+ - threat: 20
+ - applicable_for:
+   - fast
+ - tags:
+   - Infoleak
+   - Disclosure of technical information
