@@ -325,6 +325,8 @@ detect:
     - body: "Object required:"
     - body: 'eval\(\).d code on line'
     - body: "Encoding: '*' may only be first arraySize value in list"
+    - body: "Warning: fopen\("
+    - body: "Warning: fpassthru\("
 meta-info:
   - type: info
   - threat: 30
