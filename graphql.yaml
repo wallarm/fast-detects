@@ -17,6 +17,12 @@ send:
        - Content-Type: application/json
     body: '{"query":"query {__schema{types {name}}}","variables":{},"operationName":null}'
 
+  - method: 'POST'
+    url: '/-/graphql-explorer'
+    headers:
+       - Content-Type: application/json
+    body: '{"query":"query {__schema{types {name}}}","variables":{},"operationName":null}'
+
 detect: 
   - response: 
     - body: '{"data":{"__schema"'
