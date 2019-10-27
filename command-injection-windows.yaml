@@ -1,10 +1,5 @@
-collect:
-  - uniq:
-    - [ URI ]
-
 generate:
   - payload:
-
 #For QUICK scan profile. DNS_MARKER & CALC_MARKER.
     - "& nslookup DNS_MARKER &"
     - "'& nslookup DNS_MARKER'"

