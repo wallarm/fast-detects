@@ -7,10 +7,10 @@ detect:
    - body: '"Alloc":\d+,"TotalAlloc":\d+,"Sys":\d+,"Lookups":\d+,"Mallocs":\d+,"Frees":\d+'
 
 meta-info:
- - type: info
- - threat: 20
- - applicable_for:
-   - fast
- - tags:
-   - Infoleak
-   - Disclosure of technical information
+  - title: "Disclosure of technical information at MemStats allocator statistics."
+  - description: "The vulnerability is due to a lack of authorization when accessing the resource '/debug/vars'. As a result, the malicious user may obtain information of a technical nature and use it for other attacks."
+  - type: info
+  - threat: 20
+  - tags:
+    - Infoleak
+    - Disclosure of technical information

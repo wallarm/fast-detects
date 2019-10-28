@@ -17,11 +17,19 @@ send:
        - Content-Type: application/json
     body: '{"query":"query {__schema{types {name}}}","variables":{},"operationName":null}'
 
+  - method: 'POST'
+    url: '/-/graphql-explorer'
+    headers:
+       - Content-Type: application/json
+    body: '{"query":"query {__schema{types {name}}}","variables":{},"operationName":null}'
+
 detect: 
   - response: 
     - body: '{"data":{"__schema"'
 
 meta-info:
+  - title: "Disclosure of technical information at Graphql"
+  - description: "Technical disclosure at GraphQL may cause information leakage. In case of improper configuration, a malicious user may get some critical information and use it for other attacks."
   - type: info
   - threat: 20
   - tags:
