@@ -13,9 +13,7 @@ detect:
     - body: 'ERROR:.*LINE [0-9]+:'
     - body: 'Warning:.+ Invalid multibyte sequence'
     - body: '<b>Fatal Error<\/b>: (.*)'
-    - body: '<b>Warning<\/b>: (.*)'
     - body: '<b>Notice<\/b>: (.*)'
-    - body: '<\/b> on line <b>(.*)'
     - body: "Warning stuff sybase stuff"
     - body: "Sybase stuff Server message stuff"
     - body: "Warning stuff sqlite"
@@ -325,8 +323,15 @@ detect:
     - body: "Object required:"
     - body: 'eval\(\).d code on line'
     - body: "Encoding: '*' may only be first arraySize value in list"
-    - body: "Warning: fopen\("
-    - body: "Warning: fpassthru\("
+    - body: 'Warning: fopen\('
+    - body: 'Warning: fpassthru\('
+    - body: 'Warning.*include_once\(\): Failed opening'
+    - body: 'Warning.*include_once\(.*\): failed to'
+    - body: 'Warning.*include\(\): Failed opening'
+    - body: 'Warning.*include\(.*\): failed to'
+    - body: '<\/b> on line <b>(.*)'
+    - body: '<b>Warning<\/b>: (.*)'
+
 meta-info:
   - type: info
   - threat: 30
