@@ -1,6 +1,6 @@
 generate:
   - payload:
-    - "\'\"\\;{}"
+    - "'\"\\;{}"
 
 detect:
   - response:
