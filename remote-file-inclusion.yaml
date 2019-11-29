@@ -1,0 +1,32 @@
+generate:
+  - payload:
+    - 'http://wallarm.tools/rfi'
+    - 'http://wallarm.tools/rfi.php'
+    - 'http://wallarm.tools/rfi_location.php'
+    - 'http://wallarm.tools/rfi-html'
+    - 'http://wallarm.tools/rfi-html.html'
+    - 'http://167.114.245.111/rfi-html'
+  - method:
+    - replace
+
+detect:
+  - response:
+    - body: '(root:x:)|(/bin/bash)|(/usr/sbin/nologin)'
+    - body: '#    campus       284.122.107'
+    - body: 'WLRM-RFI-TEST'
+    - body: '<h1>WLRM-TEST-HTML-INCLUDE-777</h1>'
+
+meta-info:
+  - type: ptrav
+  - threat: 80
+  - tags:
+    - Path Traversal
+    - Arbitrary File Reading
+    - Misconfiguration
+    - Insecure Direct Object References
+    - Broken Access Control
+    - OWASP
+    - OWASP Top-10
+    - A4:2010
+    - A4:2013
+    - A5:2017

