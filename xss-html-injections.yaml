@@ -5,7 +5,7 @@ generate:
     - '<h1 STR_MARKER=x>'
     - '%3CSTR_MARKER%3E'
     - "'\"STR_MARKER=x"
-    - '1 ''"\''\" STR_MARKER=1 </title></textarea></style></scRipt/--!><STR_MARKER>'
+    - "1 ''\"\\''\" STR_MARKER=1 </title></textarea></style></scRipt/--!><STR_MARKER>"
     - '<a href=javascript:alert(01110111011011000111001001101101)>'
     - '<iframe src=01110111011011000111001001101101></iframe>'
     # js injections
