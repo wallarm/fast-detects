@@ -1,0 +1,17 @@
+generate:
+  - payload:
+    - "'\"\\;{}"
+
+detect:
+  - response:
+    - body: "SyntaxError:.*literal not terminated before end of script"
+    - body: "SyntaxError: Unexpected token"
+    - body: "MongoError: SyntaxError: unterminated string literal"
+
+meta-info:
+  - type: nosqli
+  - threat: 60
+  - tags:
+    - OWASP Top 10
+    - Application Errors
+    - NoSQL injection
