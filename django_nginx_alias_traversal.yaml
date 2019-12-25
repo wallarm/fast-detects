@@ -1,0 +1,97 @@
+#Attention! You have to add URI_.* insertion point to your policy
+send:
+  - method: 'GET'
+    url: '/static../manage.py'
+
+  - method: 'GET'
+    url: '/media../manage.py'
+
+  - method: 'GET'
+    url: '/uploads../manage.py'
+
+  - method: 'GET'
+    url: '/static../__init__.py'
+
+  - method: 'GET'
+    url: '/media../__init__.py'
+
+  - method: 'GET'
+    url: '/uploads../__init__.py'
+
+  - method: 'GET'
+    url: '/static../settings.py'
+
+  - method: 'GET'
+    url: '/media../settings.py'
+
+  - method: 'GET'
+    url: '/uploads../settings.py'
+
+  - method: 'GET'
+    url: '/static../apps/settings.py'
+
+  - method: 'GET'
+    url: '/media../apps/settings.py'
+
+  - method: 'GET'
+    url: '/uploads../apps/settings.py'
+
+  - method: 'GET'
+    url: '/static../dev/settings.py'
+
+  - method: 'GET'
+    url: '/media../dev/settings.py'
+
+  - method: 'GET'
+    url: '/uploads../dev/settings.py'
+
+  - method: 'GET'
+    url: '/static../production/settings.py'
+
+  - method: 'GET'
+    url: '/media../production/settings.py'
+
+  - method: 'GET'
+    url: '/uploads../production/settings.py'
+
+  - method: 'GET'
+    url: '/static../project/settings.py'
+
+  - method: 'GET'
+    url: '/media../project/settings.py'
+
+  - method: 'GET'
+    url: '/uploads../project/settings.py'
+
+  - method: 'GET'
+    url: '/static../mysite/settings.py'
+
+  - method: 'GET'
+    url: '/media../mysite/settings.py'
+
+  - method: 'GET'
+    url: '/uploads../mysite/settings.py'
+
+  - method: 'GET'
+    url: '/static../website/settings.py'
+
+  - method: 'GET'
+    url: '/media../website/settings.py'
+
+  - method: 'GET'
+    url: '/uploads../website/settings.py'
+
+detect:
+  - response:
+    - body: 'from django\.core\.management import execute_from_command_line'
+    - body: 'from django.* import'
+    - body: '''django\.contrib\.staticfiles'','
+
+meta-info:
+  - type: ptrav
+  - threat: 70
+  - tags:
+    - Django
+    - NGINX alias traversal
+    - Misconfiguration
+    - Path Traversal
