@@ -1,6 +1,8 @@
 generate:
   - payload:
-    - '%C1%81'
+    - '%0D%0A%C1%81'
+    - "%{1+'f'}"
+
 detect:
   - response:
     - body: 'Error Occurred While Processing Request'
@@ -329,6 +331,8 @@ detect:
     - body: 'Warning.*include_once\(.*\): failed to'
     - body: 'Warning.*include\(\): Failed opening'
     - body: 'Warning.*include\(.*\): failed to'
+    - body: 'java\.lang\.IllegalArgumentException'
+    - body: 'Request processing failed'
     - body: '<\/b> on line <b>(.*)'
     - body: '<b>Warning<\/b>: (.*)'
 

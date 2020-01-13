@@ -1,0 +1,18 @@
+generate:
+  - payload:
+      - '${CALC_MARKER}'
+    method:
+    - replace
+
+detect:
+  - response:
+    - body: CALC_MARKER
+
+meta-info:
+  - threat: 60
+  - type: xss
+  - tags: # TODO: OWASP, CWE, WASC references
+    - EL injection
+    - Spring Framework
+    - expression language injection
+
