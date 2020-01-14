@@ -333,6 +333,8 @@ detect:
     - body: 'Warning.*include\(.*\): failed to'
     - body: 'java\.lang\.IllegalArgumentException'
     - body: 'Request processing failed'
+    - body: 'org\.springframework\.jdbc\.BadSqlGrammarException:'
+    - body: 'java\.sql\.SQLSyntaxErrorException:'
     - body: '<\/b> on line <b>(.*)'
     - body: '<b>Warning<\/b>: (.*)'
 
