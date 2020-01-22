@@ -22,7 +22,7 @@ generate:
   - into: 'POST_MULTIPART_.*_FILE'
 detect:
   - response:
-    - body: ':root:'
+    - body: '[a-z]*:[^:]*:[0-9]*:[0-9]*:[^:]*:\/[^:]*:\/[^:]*'
   - oob:
     - dns
 meta-info:

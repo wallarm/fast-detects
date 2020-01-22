@@ -123,6 +123,7 @@ detect:
     - body: 'INSERT INTO .*?'
     - body: 'Unknown column'
     - body: 'ERROR:\s*operator is not unique'
+    - body: 'no such function'
 meta-info:
   - type: sqli
   - threat: 90

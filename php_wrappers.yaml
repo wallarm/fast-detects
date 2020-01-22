@@ -14,7 +14,7 @@ detect:
   - oob:
     - dns
   - response:
-    - body: '(root:x:)|(/bin/bash)|(/usr/sbin/nologin)'
+    - body: '[a-z]*:[^:]*:[0-9]*:[0-9]*:[^:]*:\/[^:]*:\/[^:]*'
 meta-info:
   - type: rce
   - threat: 90
