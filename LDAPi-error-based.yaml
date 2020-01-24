@@ -1,0 +1,44 @@
+generate:
+  - payload:
+    - '*)(&'
+    - '!(()&&!|*|\\'
+    - '^(#$!@#$)(()))'
+    - '*))%00'
+    - ')(cn=))\x00'
+    - "*()|&'"
+
+  - method:
+    - postfix
+
+detect:
+  - response:
+    - body: 'A constraint violation occurred'
+    - body: 'An inappropriate matching occurred'
+    - body: 'com.sun.jndi.ldap'
+    - body: 'Invalid DN syntax'
+    - body: 'javax.naming.NameNotFoundException'
+    - body: 'Bad search filter'
+    - body: 'LDAPException'
+    - body: 'No Such Object'
+    - body: 'Object does not exist'
+    - body: 'Protocol error occurred'
+    - body: 'Results returned are too large'
+    - body: 'Search: Operations error in'
+    - body: 'Size limit has exceeded'
+    - body: 'The alias is invalid'
+    - body: 'The distinguished name has an invalid syntax'
+    - body: 'The search filter cannot be recognized'
+    - body: 'The search filter is incorrect'
+    - body: 'The search filter is invalid'
+    - body: 'The server does not handle directory requests'
+    - body: 'The syntax is invalid'
+    - body: 'There was a naming violation'
+    - body: 'There was an object class violation'
+    - body: 'Undefined index: cn'
+
+meta-info:
+  - title: 'LDAP injection'
+  - description: 'LDAP Injection is an attack used to exploit web-based applications that construct LDAP statements based on user input. These attacks could result in the granting of permissions to unauthorized queries, and content modification inside the LDAP tree.'
+  - type: ldapi
+  - threat: 80
+  
