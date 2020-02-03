@@ -1,8 +1,9 @@
 collect:
   - uniq:
     - [ URI ]
+
 generate:
-  - into: 
+  - into:
     - HEADER_ORIGIN
     - HEADER_REFERER
   - payload:
@@ -11,13 +12,18 @@ generate:
     - postfix
     - prefix
     - replace
+
 detect:
   - response:
     - headers:
       - 'Access-Control-Allow-Origin': 'STR_MARKER'
+      - 'Access-Control-Allow-Origin': '\*'
     - body: 'STR_MARKER'
+
 meta-info:
   - type: info
+  - applicable_for:
+    - fast
   - threat: 30
   - tags:
     - CORS
