@@ -6,8 +6,8 @@ generate:
     - '%3CSTR_MARKER%3E'
     - "'\"STR_MARKER=x"
     - "1 ''\"\\''\" STR_MARKER=1 </title></textarea></style></scRipt/--!><STR_MARKER>"
-    - '<a href=javascript:alert(01110111011011000111001001101101)>'
-    - '<iframe src=01110111011011000111001001101101></iframe>'
+    - '<a href=javascript:STR_MARKER&#40;&#41;>'
+    - '<iframe src=STR_MARKER></iframe>'
     # js injections
     - 'STR_MARKER'
     - "'\";\n/**/;STR_MARKER=1;/*"
@@ -22,8 +22,11 @@ detect:
     - strict_type: html
     - body:
       - html
-    - body: '<a href=javascript:alert(01110111011011000111001001101101)>'
-    - body: '<iframe src=01110111011011000111001001101101></iframe>'
+    - body: '<iframe src=STR_MARKER></iframe>'
+    - body:
+      - html:
+        - href:
+          - 'javascript:STR_MARKER\(\)'
 
 meta-info:
   - threat: 60
