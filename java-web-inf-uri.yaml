@@ -96,7 +96,6 @@ send:
 detect:
   - response:
     - body: '<web-app[\w\W]+<\/web-app>'
-    #- body: '<web-app[\w\W]+<servlet>[\w\W]+<\/servlet>[\w\W]+<\/web-app>'
 
 meta-info:
   - title: "Java web.xml information leakage vulnerability"
