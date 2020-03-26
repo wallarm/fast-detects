@@ -1,0 +1,29 @@
+send:
+    - method: 'GET'
+      url: '/telescope'
+  
+    - method: 'GET'
+      url: '/logs'
+    
+    - method: 'GET'
+      url: '/debugbar.js'
+
+    - method: 'GET'
+      url: '/'
+
+detect:
+    - response: 
+        - body: '<title>Telescope - Laravel<\/title>'
+        - body: '<title>Laravel log viewer<\/title>'
+        - body: 'PhpDebugBar\.DebugBar\(\);'
+        - body: '(src="debugbar/debugbar\.js")|(src="debugbar\.js")'
+  
+meta-info:
+    - type: info
+    - threat: 67
+    - applicable_for: 
+      - fast
+    - tags:
+      - Laravel
+      - PHP Debug Bar
+      - Infoleak
