@@ -13,11 +13,11 @@ detect:
       - body: '<title>Welcome to Gii<\/title>'
 
 meta-info:
-    - title: "Remote code execution in Yii2 Gii module"
-    - description: "Possible remote code execution via an unescaped parameter in 'generateString' function."
-    - additional: "For more information see https://github.com/yiisoft/yii2-gii/issues/433"
-    - type: rce
-    - threat: 90
+    - title: "Gii Extension for Yii 2"
+    - description: "This extension provides a Web-based code generator for Yii framework 2.0 applications. It should be accessible only from the whitelist of allowed IP addresses"
+    - additional: "Also in this module may contain possible remote code execution via an unescaped parameter in 'generateString' function. For more information see https://github.com/yiisoft/yii2-gii/issues/433"
+    - type: info
+    - threat: 75
     - tags: 
       - Yii2
       - Yii2 Gii
