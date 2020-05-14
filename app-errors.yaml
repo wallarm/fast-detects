@@ -337,6 +337,7 @@ detect:
     - body: 'java\.sql\.SQLSyntaxErrorException:'
     - body: '<\/b> on line <b>(.*)'
     - body: '<b>Warning<\/b>: (.*)'
+    - body: 'no such function'
 
 meta-info:
   - type: info

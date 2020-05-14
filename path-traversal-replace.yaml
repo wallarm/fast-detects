@@ -16,7 +16,7 @@ generate:
 detect:
   - response:
     - body: 'cm9vdDp4OjA6Cm' #part of base64 < /etc/group
-    - body: '(root:x:)|(/bin/bash)|(/usr/sbin/nologin)'
+    - body: '[a-z]*:[^:]*:[0-9]*:[0-9]*:[^:]*:\/[^:]*:\/[^:]*'
 
 meta-info:
   - type: ptrav

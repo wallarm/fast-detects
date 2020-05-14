@@ -10,7 +10,7 @@ generate:
 
 detect:
   - response:
-    - body: '(root:x:)|(/bin/bash)|(/usr/sbin/nologin)'
+    - body: '[a-z]*:[^:]*:[0-9]*:[0-9]*:[^:]*:\/[^:]*:\/[^:]*'
     - body: '#    campus       284.122.107'
     - body: 'WLRM-RFI-TEST'
     - body: '<h1>WLRM-TEST-HTML-INCLUDE-777</h1>'
