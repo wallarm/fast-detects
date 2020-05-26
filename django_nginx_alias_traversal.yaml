@@ -90,6 +90,9 @@ detect:
 meta-info:
   - type: ptrav
   - threat: 70
+  - applicable_for:
+    - fast
+    - scanner
   - tags:
     - Django
     - NGINX alias traversal

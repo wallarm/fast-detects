@@ -32,6 +32,9 @@ meta-info:
   - description: "Technical disclosure at GraphQL may cause information leakage. In case of improper configuration, a malicious user may get some critical information and use it for other attacks."
   - type: info
   - threat: 20
+  - applicable_for:
+    - fast
+    - scanner
   - tags:
     - Graphql
     - Information Exposure

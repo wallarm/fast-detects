@@ -102,6 +102,9 @@ meta-info:
   - description: "WEB-INF directory may be accessed by external users because of improper configuration, resulting in the leakage of configuration information."
   - type: info
   - threat: 20
+  - applicable_for:
+    - fast
+    - scanner
   - tags:
     - Information Exposure
     - Java
