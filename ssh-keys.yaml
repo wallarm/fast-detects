@@ -59,6 +59,9 @@ detect:
 meta-info:
   - type: info
   - threat: 30
+  - applicable_for:
+    - fast
+    - scanner
   - tags:
     - Information Exposure
     - ssh authorized_keys

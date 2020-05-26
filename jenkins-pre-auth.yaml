@@ -8,7 +8,10 @@ detect:
 
 meta-info:
   - type: info
-  - threat: 50
+  - threat: 43
+  - applicable_for:
+    - fast
+    - scanner
   - tags:
     - Jenkins
     - Information Leak

@@ -9,6 +9,9 @@ detect:
 meta-info:
   - type: info
   - threat: 30
+  - applicable_for:
+    - fast
+    - scanner
   - tags:
     - Splunkd XML feed
     - Infoleak

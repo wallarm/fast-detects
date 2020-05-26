@@ -11,6 +11,9 @@ meta-info:
   - description: "The vulnerability is due to a lack of authorization when accessing the resource '/debug/vars'. As a result, the malicious user may obtain information of a technical nature and use it for other attacks."
   - type: info
   - threat: 20
+  - applicable_for:
+    - fast
+    - scanner
   - tags:
     - Infoleak
     - Disclosure of technical information

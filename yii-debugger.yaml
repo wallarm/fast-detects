@@ -15,6 +15,9 @@ detect:
 meta-info:
   - type: info
   - threat: 67
+  - applicable_for:
+    - fast
+    - scanner
   - tags:
     - Yii Debugger
     - Yiiframework
