@@ -23,6 +23,7 @@ meta-info:
     - threat: 67
     - applicable_for: 
       - fast
+      - scanner
     - tags:
       - Laravel
       - PHP Debug Bar
