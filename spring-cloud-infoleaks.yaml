@@ -6,7 +6,7 @@ generate:
     - env
     - dump
     - health
-    - congifprops
+    - configprops
   - into: ACTION_NAME
   - method:
     - replace
