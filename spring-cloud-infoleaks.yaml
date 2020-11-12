@@ -7,6 +7,22 @@ generate:
     - dump
     - health
     - congifprops
+    - auditevents
+    - beans
+    - auditevents
+    - conditions
+    - autoconfi
+    - flyway
+    - heapdump
+    - info
+    - liquibase
+    - logfile
+    - loggers
+    - metrics
+    - prometheus
+    - scheduledtasks
+    - sessions
+    - threaddump
   - into: ACTION_NAME
   - method:
     - replace
