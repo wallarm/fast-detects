@@ -6,6 +6,22 @@ generate:
     - env
     - dump
     - health
+    - auditevents
+    - beans
+    - auditevents
+    - conditions
+    - autoconfi
+    - flyway
+    - heapdump
+    - info
+    - liquibase
+    - logfile
+    - loggers
+    - metrics
+    - prometheus
+    - scheduledtasks
+    - sessions
+    - threaddump
     - configprops
   - into: ACTION_NAME
   - method:
