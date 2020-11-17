@@ -6,7 +6,6 @@ generate:
     - env
     - dump
     - health
-    - congifprops
     - auditevents
     - beans
     - auditevents
@@ -23,6 +22,7 @@ generate:
     - scheduledtasks
     - sessions
     - threaddump
+    - configprops
   - into: ACTION_NAME
   - method:
     - replace
