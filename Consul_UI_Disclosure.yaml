@@ -1,0 +1,21 @@
+send:
+  - method: 'GET'
+    url: '/ui/'
+
+detect:
+  - response:
+    - body: "<title>Consul by HashiCorp<\/title>"
+    - body: '<!-- CONSUL_VERSION: \d+\.\d+\.\d+ -->'
+
+meta-info:
+  - title: "Disclosure of sensitive information in Consul UI"
+  - description: "The vulnerability exists due to lack of authorization to access Consul UI. As a result, the attacker may obtain sensitive information and use it in other attacks."  
+  - additional: "For more information, see https://lab.wallarm.com/consul-by-hashicorp-from-infoleak-to-rce/"
+  - type: info
+  - threat: 35
+  - applicable_for: 
+    - scanner
+  - tags:
+    - Consul UI
+    - CWE-200 Information Exposure
+    - Disclosure of technical information
