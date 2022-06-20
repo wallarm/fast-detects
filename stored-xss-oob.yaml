@@ -1,0 +1,14 @@
+generate:
+  - payload:
+    - "><img src=\"http://DNS_MARKER\"><"
+    - "><script src=\"http://DNS_MARKER\"></script>"
+  - method:
+    - postfix
+detect:
+  - delayed_oob:
+    - dns
+meta-info:
+  - applicable_for:
+    - attack_rechecker
+  - threat: 70
+  - type: xss
